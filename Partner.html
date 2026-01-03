@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunlynks | Partner With Us</title>
+    <link rel="stylesheet" href="partner.css">
+
+</head>
+<body>
+      <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div >
+                <img src="Modern Solar Energy Logo - SUNLYNKS (A4).png" alt="Sunlynks Logo" class="logo-img">
+                <i class="fas fa-sun"></i>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <a href="Index.html" >Home</a>
+                <a href="Partner.html" class="active">Partner</a>
+                <a href="about.html">About</a>
+                <a href="sustainability.html">Sustainability</a>
+                <a href="contact.html">Requirement</a>
+                <button class="contact-btn">
+                    <i class="fas fa-phone-alt"></i> Get Consultation
+                </button>
+            </nav>
+            
+            <!-- Mobile Menu Toggle (3-dot line) -->
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <nav class="mobile-nav" id="mobileNav">
+                <a href="Index.html">Home</a>
+                <a href="Partner.html" class="active">Partner</a>
+                <a href="about.html">About</a>
+                <a href="sustainability.html">Sustainability</a>
+                <a href="contact.html">Requirement</a>
+                <button class="contact-btn">
+                    <i class="fas fa-phone-alt"></i> Get Consultation
+                </button>
+            </nav>
+            
+            <!-- Overlay for mobile menu -->
+            <div class="menu-overlay" id="menuOverlay"></div>
+        </div>
+    </header>
+
+    <!-- Partner Hero Section -->
+    <section class="partner-hero">
+        <div class="container">
+            <h1>Partner With Sunlynks Solar</h1>
+            <p>Join our mission to power a sustainable future. Whether you're an installer, vendor, dealership, or social media influencer, we have partnership opportunities for you.</p>
+            <a href="#partner-form" class="cta-button">Become a Partner Today</a>
+        </div>
+    </section>
+
+    <!-- Partner Categories -->
+    <section class="partner-categories">
+        <div class="container">
+            <h2 class="section-title">Partnership Opportunities</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h3>Installation Teams</h3>
+                    <p>Certified solar installation professionals join our network of quality installers.</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Vendors & Suppliers</h3>
+                    <p>Supply high-quality solar components and equipment to our installation network.</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Authorized Partner (Free Available)</h3>
+                    <p>Become an authorized Sunlynks Partner and sell our solar solutions in your region.</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <h3>Social Media Partners</h3>
+                    <p>Influencers and content creators help spread the word about solar energy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Partner With Us -->
+    <section class="why-partner">
+        <div class="container">
+            <h2 class="section-title">Why Partner With Sunlynks?</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; font-size: 1.1rem;">
+                We are a genuine organization committed to quality, affordability, and sustainable energy solutions. Our partners benefit from competitive commissions, comprehensive support, and a trusted brand.
+            </p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Quality Assurance</h3>
+                        <p>We never compromise on quality. All our solar solutions meet the highest industry standards with premium components and expert installation.</p>
+                    </div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Best Price Guarantee</h3>
+                        <p>We offer the most competitive pricing in the market without sacrificing quality, making solar energy accessible to more households and businesses.</p>
+                    </div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Genuine Customer Ratings</h3>
+                        <p>Our 4.8/5 average customer rating reflects our commitment to excellence and customer satisfaction.</p>
+                    </div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Competitive Commissions</h3>
+                        <p>Enjoy industry-leading commission rates paid promptly. Additional bonuses for high-performance partners.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Form -->
+    <section class="partner-form-section" id="partner-form">
+        <div class="container">
+            <div class="form-container">
+                <h2>Become a Sunlynks Partner</h2>
+                <p style="text-align: center; margin-bottom: 30px; color: #666;">Fill out the form below and our partnership team will contact you within 24 hours.</p>
+                
+                <form id="partnerForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company/Organization (if applicable)</label>
+                        <input type="text" id="company" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Partnership Type *</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="installer" name="partnerType" value="installer" required>
+                                <label for="installer">Installation Team</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="vendor" name="partnerType" value="vendor">
+                                <label for="vendor">Vendor/Supplier</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="dealer" name="partnerType" value="dealer">
+                                <label for="dealer">Dealership</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="social" name="partnerType" value="social">
+                                <label for="social">Social Media Partner</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="other" name="partnerType" value="other">
+                                <label for="other">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Relevant Experience</label>
+                        <textarea id="experience" class="form-control" rows="4" placeholder="Tell us about your experience in solar or related fields..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Why do you want to partner with Sunlynks?</label>
+                        <textarea id="message" class="form-control" rows="4" placeholder="Share your motivation for joining our partnership program..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-button" style="width: 100%; font-size: 1.2rem; padding: 18px;">Submit Partnership Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Partners Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Partnering with Sunlynks has transformed our installation business. Their support, quality equipment, and fair pricing structure have helped us grow by 40% in just one year."</p>
+                    <p class="testimonial-author">Ritesh Sngh</p>
+                    <p class="testimonial-role">Sr. Manager, Koshish Solar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sunlynks Solar</h3>
+                    <p>Providing sustainable solar energy solutions with quality, affordability, and integrity since 2010.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="Partner.html">Partner Program</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="sustainability.html">Sustainability</a></li>
+                        <li><a href="contact.html">Requirement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Solar Street, Energy City</li>
+                        <li><i class="fas fa-phone"></i> +1 (800) 555-SOLAR</li>
+                        <li><i class="fas fa-envelope"></i> partners@sunlinkssolar.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 SunLinks Solar. All rights reserved. Committed to a sustainable future.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('partnerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                partnerType: document.querySelector('input[name="partnerType"]:checked').value,
+                experience: document.getElementById('experience').value,
+                message: document.getElementById('message').value
+            };
+            
+            // In a real application, you would send this data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you ${formData.name}! Your partnership application has been submitted. Our team will contact you within 24 hours at ${formData.email} or ${formData.phone}.`);
+            
+            // Reset the form
+            document.getElementById('partnerForm').reset();
+            
+            // Scroll to top of form section
+            document.getElementById('partner-form').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Simple testimonial slider (in a real site you would use a library)
+        const testimonials = [
+            {
+                text: "Partnering with SunLinks has transformed our installation business. Their support, quality equipment, and fair pricing structure have helped us grow by 40% in just one year.",
+                author: "Ethesham Haider",
+                role: "Owner, Helio shift"
+            },
+            {
+                text: "As a solar equipment vendor, we appreciate SunLinks' commitment to quality and their prompt payments. They're one of our most reliable partners in the renewable energy sector.",
+                author: "Ritesh Singh",
+                role: "Sr. Manager, Koshish Solar"
+            },
+            {
+                text: "The commission structure at Sunlynks is truly competitive. They provide excellent marketing materials and training that helped us become a top dealership in our region.",
+                author: "James Wilson",
+                role: "Sunlynks Dealer, Midwest Region"
+            }
+        ];
+        
+        let currentTestimonial = 0;
+        const testimonialElement = document.querySelector('.testimonial-card');
+        
+        // Function to rotate testimonials
+        function rotateTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            const testimonial = testimonials[currentTestimonial];
+            
+            testimonialElement.innerHTML = `
+                <p class="testimonial-text">"${testimonial.text}"</p>
+                <p class="testimonial-author">${testimonial.author}</p>
+                <p class="testimonial-role">${testimonial.role}</p>
+            `;
+        }
+        
+        // Change testimonial every 5 seconds
+        setInterval(rotateTestimonial, 5000);
+    
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const menuLinks = document.querySelectorAll('.mobile-nav a');
+        
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            mobileMenuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+            
+            // Animate hamburger to X
+            const spans = mobileMenuToggle.querySelectorAll('span');
+            if (mobileNav.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -7px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        }
+        
+        // Close mobile menu when clicking a link
+        function closeMobileMenu() {
+            mobileMenuToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            
+            // Reset hamburger animation
+            const spans = mobileMenuToggle.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
+        
+        // Event listeners
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        menuOverlay.addEventListener('click', closeMobileMenu);
+        
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        // Simple animation for stats counter
+        document.addEventListener('DOMContentLoaded', function() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        stat.textContent = current === target ? target : Math.floor(current);
+                        setTimeout(updateCounter, 30);
+                    }
+                };
+                
+                // Start counter when element is in viewport
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCounter();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(stat.parentElement);
+            });
+            
+            // Contact button click handler
+            const contactButtons = document.querySelectorAll('.contact-btn');
+            contactButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert("Thank you for your interest in SunLynks! Our team will contact you shortly for a free solar consultation.");
+                });
+            });
+            
+            // Set active navigation link
+            const navLinks = document.querySelectorAll('.desktop-nav a, .mobile-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
