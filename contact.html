@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunlynks | Let's make Sustainable India</title>
+    <link rel="stylesheet" href="contact_form.css">
+</head>
+<body>
+     <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div >
+                <img src="Modern Solar Energy Logo - SUNLYNKS (A4).png" alt="Sunlynks Logo" class="logo-img">
+                <i class="fas fa-sun"></i>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <a href="Index.html">Home</a>
+                <a href="Partner.html">Partner</a>
+                <a href="about.html">About</a>
+                <a href="sustainability.html">Sustainability</a>
+                <a href="contact.html" class="active">Requirement</a>
+                <button class="contact-btn">
+                    <i class="fas fa-phone-alt"></i> Get Consultation
+                </button>
+            </nav>
+            
+            <!-- Mobile Menu Toggle (3-dot line) -->
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <nav class="mobile-nav" id="mobileNav">
+                <a href="Index.html">Home</a>
+                <a href="Partner.html">Partner</a>
+                <a href="about.html">About</a>
+                <a href="sustainability.html">Sustainability</a>
+                <a href="contact.html" class="active">Requirement</a>
+                <button class="contact-btn">
+                    <i class="fas fa-phone-alt"></i> Get Consultation
+                </button>
+            </nav>
+            
+            <!-- Overlay for mobile menu -->
+            <div class="menu-overlay" id="menuOverlay"></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Harness the Power of Solar Energy</h1>
+            <p>Join the renewable energy revolution. Submit your information to receive a personalized solar solution and reduce your electricity bills.</p>
+            <a href="#form" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Form Section -->
+        <section class="form-section" id="form">
+            <h2><i class="fas fa-file-alt"></i> Solar Energy Data Collection</h2>
+            <form id="solarDataForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Location *</label>
+                    <input type="text" id="location" name="location" required placeholder="City, State">
+                </div>
+                
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp Number *</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" required placeholder="+1 234 567 8900">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="category">Consumer Category *</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select your category</option>
+                        <option value="residential">Residential</option>
+                        <option value="commercial">Commercial</option>
+                        <option value="industrial">Industrial</option>
+                        <option value="agricultural">Agricultural</option>
+                        <option value="government">Government/Institutional</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Products of Interest</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="product1" name="products" value="solar_panels">
+                            <label for="product1">Solar Panels</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="product2" name="products" value="inverters">
+                            <label for="product2">Inverters</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="product3" name="products" value="batteries">
+                            <label for="product3">Battery Storage</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="product4" name="products" value="charge_controllers">
+                            <label for="product4">Charge Controllers</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="product5" name="products" value="mounting">
+                            <label for="product5">Mounting Systems</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="product6" name="products" value="monitoring">
+                            <label for="product6">Monitoring Systems</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bill">Average Monthly Electricity Bill (USD) *</label>
+                    <select id="bill" name="bill" required>
+                        <option value="">Select your average bill</option>
+                        <option value="0-50">$0 - $50</option>
+                        <option value="51-100">$51 - $100</option>
+                        <option value="101-200">$101 - $200</option>
+                        <option value="201-300">$201 - $300</option>
+                        <option value="301-500">$301 - $500</option>
+                        <option value="500+">$500+</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Your Information</button>
+            </form>
+        </section>
+        
+        <!-- Info Section -->
+        <section class="info-section">
+            <h2><i class="fas fa-info-circle"></i> How It Works</h2>
+            
+            <div class="info-card">
+                <h3>Why Solar Energy?</h3>
+                <p>Solar power is a clean, renewable energy source that reduces your carbon footprint and electricity bills. By switching to solar, you contribute to a sustainable future while saving money in the long run.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Data Collection Purpose</h3>
+                <p>We collect this information to analyze your energy needs and provide you with the most suitable solar solutions. Your data helps us calculate potential savings and recommend the right products for your specific situation.</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4>Data Security</h4>
+                        <p>Your information is securely stored and never shared with third parties without consent.</p>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <div>
+                        <h4>Quick Analysis</h4>
+                        <p>Receive a personalized solar solution within 48 hours of submitting your information.</p>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-sun"></i>
+                    <div>
+                        <h4>Expert Consultation</h4>
+                        <p>Our solar energy experts will contact you to discuss the best options for your needs.</p>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h4>Savings Estimate</h4>
+                        <p>Get a detailed estimate of your potential savings based on your current electricity bill.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Solar Solutions</h3>
+                    <p>We are committed to providing sustainable energy solutions through innovative solar technology. Join us in creating a greener future.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Solar Street, Green City</p>
+                    <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+                    <p><i class="fas fa-envelope"></i> info@solarsolutions.com</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <p><a href="#" style="color: #ccc; text-decoration: none;">About Us</a></p>
+                    <p><a href="#" style="color: #ccc; text-decoration: none;">Our Services</a></p>
+                    <p><a href="#" style="color: #ccc; text-decoration: none;">Privacy Policy</a></p>
+                    <p><a href="#" style="color: #ccc; text-decoration: none;">Terms of Service</a></p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Solar Solutions. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #f97316;"></i> for a sustainable future</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Form submission handling
+        document.getElementById('solarDataForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = {
+                name: document.getElementById('name').value,
+                location: document.getElementById('location').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                email: document.getElementById('email').value,
+                category: document.getElementById('category').value,
+                products: [],
+                bill: document.getElementById('bill').value
+            };
+            
+            // Get selected products
+            const productCheckboxes = document.querySelectorAll('input[name="products"]:checked');
+            productCheckboxes.forEach(checkbox => {
+                formData.products.push(checkbox.value);
+            });
+            
+            // In a real application, you would send this data to a server
+            // For this demo, we'll just show a confirmation message
+            alert(`Thank you, ${formData.name}! Your solar energy data has been submitted successfully. Our team will contact you at ${formData.email} or ${formData.whatsapp} within 48 hours.`);
+            
+            // Reset the form
+            document.getElementById('solarDataForm').reset();
+            
+            // Scroll to top for better UX
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Add some interactive styling
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const menuLinks = document.querySelectorAll('.mobile-nav a');
+        
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            mobileMenuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+            
+            // Animate hamburger to X
+            const spans = mobileMenuToggle.querySelectorAll('span');
+            if (mobileNav.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -7px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        }
+        
+        // Close mobile menu when clicking a link
+        function closeMobileMenu() {
+            mobileMenuToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            
+            // Reset hamburger animation
+            const spans = mobileMenuToggle.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
+        
+        // Event listeners
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        menuOverlay.addEventListener('click', closeMobileMenu);
+        
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        // Simple animation for stats counter
+        document.addEventListener('DOMContentLoaded', function() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        stat.textContent = current === target ? target : Math.floor(current);
+                        setTimeout(updateCounter, 30);
+                    }
+                };
+                
+                // Start counter when element is in viewport
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCounter();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(stat.parentElement);
+            });
+            
+            // Contact button click handler
+            const contactButtons = document.querySelectorAll('.contact-btn');
+            contactButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert("Thank you for your interest in SunLynks! Our team will contact you shortly for a free solar consultation.");
+                });
+            });
+            
+            // Set active navigation link
+            const navLinks = document.querySelectorAll('.desktop-nav a, .mobile-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
