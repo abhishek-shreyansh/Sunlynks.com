@@ -242,11 +242,11 @@
         }
         
         /* Main Content */
-        .main-content {
+        245
+{
             padding: 4rem 0;
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 3rem;
+grid-template-columns: 1fr;            gap: 3rem;
         }
         
         /* Form Styles */
@@ -494,6 +494,12 @@
 	}
             }
         }
+
+@media (min-width: 768px) {
+	.main-content {
+		grid-template-columns: 1fr 1.5fr;
+	}
+}
         
         @media (min-width: 993px) {
             .mobile-nav,
@@ -503,3 +509,4 @@
             }
 
         }
+
