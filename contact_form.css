@@ -472,7 +472,8 @@
             }
         }
         
-        @media (max-width: 768px) {
+        487
+{
             .section {
                 padding: 25px;
             }
@@ -484,6 +485,13 @@
             
             .hero {
                 padding: 60px 0;
+              	
+	.main-content {
+		grid-template-columns: 1fr;
+	}	
+	.features {
+		grid-template-columns: 1fr;
+	}
             }
         }
         
@@ -493,4 +501,5 @@
             .mobile-menu-toggle {
                 display: none;
             }
+
         }
