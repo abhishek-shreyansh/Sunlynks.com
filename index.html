@@ -713,6 +713,69 @@
     Book My Demo →
   </button>
 
+     <script>
+  const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbzyxERQSbHrxYGlFiQLZolo-V3CJ7yOuPI2mEtTHSwuerEkmGYN8PrUrAtBc7rqkP14lw/exec";
+
+  async function submitDemo() {
+    const name = document.getElementById("demo-name").value.trim();
+    const email = document.getElementById("demo-email").value.trim();
+    const company = document.getElementById("demo-company").value.trim();
+    const size = document.getElementById("demo-size").value;
+    const msg = document.getElementById("demo-message");
+    const btn = document.getElementById("demo-btn");
+
+    if (!name || !email || !company || !size) {
+      msg.style.color = "red";
+      msg.textContent = "Please fill all fields.";
+      return;
+    }
+
+    const emailPattern = /^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/;
+    if (!emailPattern.test(email)) {
+      msg.style.color = "red";
+      msg.textContent = "Please enter a valid email.";
+      return;
+    }
+
+    const payload = {
+      name,
+      email,
+      company,
+      size,
+      timestamp: new Date().toISOString()
+    };
+
+    btn.disabled = true;
+    btn.textContent = "Submitting...";
+    msg.textContent = "";
+
+    try {
+      await fetch(SHEET_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      msg.style.color = "green";
+      msg.textContent = "Thank you! Your demo request has been submitted.";
+
+      document.getElementById("demo-name").value = "";
+      document.getElementById("demo-email").value = "";
+      document.getElementById("demo-company").value = "";
+      document.getElementById("demo-size").value = "";
+    } catch (error) {
+      msg.style.color = "red";
+      msg.textContent = "Something went wrong. Please try again.";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Book My Demo →";
+    }
+  }
+</script>
+
   <!-- Success message (hidden by default) -->
   <div id="demo-success" style="display:none; text-align:center; margin-top:1.2rem;
     background:var(--green-light); border-radius:12px; padding:1rem;">
