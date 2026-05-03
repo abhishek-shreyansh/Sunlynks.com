@@ -675,7 +675,7 @@
       </div>
     </div>
    <div class="login-form-card reveal">
-  <div style="display:flex; align-items:center; gap:.6rem; margin-bottom:.4rem;">
+ <div style="display:flex; align-items:center; gap:.6rem; margin-bottom:.4rem;">
   <span style="font-size:1.5rem;">📅</span>
   <h3 style="margin:0;">Book a Demo</h3>
 </div>
@@ -715,10 +715,23 @@
 </button>
 
 <p id="demo-message" style="margin-top:12px; font-size:.9rem;"></p>
-     <script>
-  const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbzyxERQSbHrxYGlFiQLZolo-V3CJ7yOuPI2mEtTHSwuerEkmGYN8PrUrAtBc7rqkP14lw/exec";
 
-  async function submitDemo() {
+<form id="hidden-demo-form"
+      method="POST"
+      action="https://script.google.com/macros/s/AKfycbzUmenPrDNMi5FFrxFSz-hZbP0_zFhZN8svfKZGxszpC1TXAQKLBse2KszzQi6WRfRrug/exec"
+      target="hidden_iframe"
+      style="display:none;">
+  <input type="hidden" name="name" id="hidden-name">
+  <input type="hidden" name="email" id="hidden-email">
+  <input type="hidden" name="company" id="hidden-company">
+  <input type="hidden" name="size" id="hidden-size">
+  <input type="hidden" name="timestamp" id="hidden-timestamp">
+</form>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<script>
+  function submitDemo() {
     const name = document.getElementById("demo-name").value.trim();
     const email = document.getElementById("demo-email").value.trim();
     const company = document.getElementById("demo-company").value.trim();
@@ -739,42 +752,29 @@
       return;
     }
 
-    const payload = {
-      name,
-      email,
-      company,
-      size,
-      timestamp: new Date().toISOString()
-    };
+    document.getElementById("hidden-name").value = name;
+    document.getElementById("hidden-email").value = email;
+    document.getElementById("hidden-company").value = company;
+    document.getElementById("hidden-size").value = size;
+    document.getElementById("hidden-timestamp").value = new Date().toISOString();
 
     btn.disabled = true;
     btn.textContent = "Submitting...";
-    msg.textContent = "";
+    msg.style.color = "green";
+    msg.textContent = "Submitting your request...";
 
-    try {
-      await fetch(SHEET_ENDPOINT, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      });
+    document.getElementById("hidden-demo-form").submit();
 
+    setTimeout(() => {
       msg.style.color = "green";
       msg.textContent = "Thank you! Your demo request has been submitted.";
-
+      btn.disabled = false;
+      btn.textContent = "Book My Demo →";
       document.getElementById("demo-name").value = "";
       document.getElementById("demo-email").value = "";
       document.getElementById("demo-company").value = "";
       document.getElementById("demo-size").value = "";
-    } catch (error) {
-      msg.style.color = "red";
-      msg.textContent = "Something went wrong. Please try again.";
-    } finally {
-      btn.disabled = false;
-      btn.textContent = "Book My Demo →";
-    }
+    }, 1500);
   }
 </script>
 
