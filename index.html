@@ -676,43 +676,45 @@
     </div>
    <div class="login-form-card reveal">
   <div style="display:flex; align-items:center; gap:.6rem; margin-bottom:.4rem;">
-    <span style="font-size:1.5rem;">📅</span>
-    <h3 style="margin:0;">Book a Demo</h3>
-  </div>
-  <p style="font-size:.85rem; color:var(--text-muted); margin-bottom:1.5rem; line-height:1.6;">
-    See SolarCRM in action. Fill in your details and our team will reach out within 24 hours.
-  </p>
+  <span style="font-size:1.5rem;">📅</span>
+  <h3 style="margin:0;">Book a Demo</h3>
+</div>
 
-  <div class="form-group">
-    <label>Your Full Name</label>
-    <input type="text" placeholder="Rahul Sharma" id="demo-name">
-  </div>
+<p style="font-size:.85rem; color:var(--text-muted); margin-bottom:1.5rem; line-height:1.6;">
+  See SolarCRM in action. Fill in your details and our team will reach out within 24 hours.
+</p>
 
-  <div class="form-group">
-    <label>Work Email</label>
-    <input type="email" placeholder="rahul@solarcompany.com" id="demo-email">
-  </div>
+<div class="form-group">
+  <label>Your Full Name</label>
+  <input type="text" placeholder="Rahul Sharma" id="demo-name">
+</div>
 
-  <div class="form-group">
-    <label>Company Name</label>
-    <input type="text" placeholder="e.g. SunPower Solutions" id="demo-company">
-  </div>
+<div class="form-group">
+  <label>Work Email</label>
+  <input type="email" placeholder="rahul@solarcompany.com" id="demo-email">
+</div>
 
-  <div class="form-group">
-    <label>Team Size</label>
-    <select id="demo-size">
-      <option value="">Select your team size</option>
-      <option>1–5 people</option>
-      <option>6–20 people</option>
-      <option>21–50 people</option>
-      <option>50+ people</option>
-    </select>
-  </div>
+<div class="form-group">
+  <label>Company Name</label>
+  <input type="text" placeholder="e.g. SunPower Solutions" id="demo-company">
+</div>
 
-  <button class="form-btn" id="demo-btn" onclick="submitDemo()">
-    Book My Demo →
-  </button>
+<div class="form-group">
+  <label>Team Size</label>
+  <select id="demo-size">
+    <option value="">Select your team size</option>
+    <option>1–5 people</option>
+    <option>6–20 people</option>
+    <option>21–50 people</option>
+    <option>50+ people</option>
+  </select>
+</div>
 
+<button class="form-btn" id="demo-btn" type="button" onclick="submitDemo()">
+  Book My Demo →
+</button>
+
+<p id="demo-message" style="margin-top:12px; font-size:.9rem;"></p>
      <script>
   const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbzyxERQSbHrxYGlFiQLZolo-V3CJ7yOuPI2mEtTHSwuerEkmGYN8PrUrAtBc7rqkP14lw/exec";
 
