@@ -714,22 +714,6 @@
   Book My Demo →
 </button>
 
-<p id="demo-message" style="margin-top:12px; font-size:.9rem;"></p>
-
-<form id="hidden-demo-form"
-      method="POST"
-      action="https://script.google.com/macros/s/AKfycbxDA2bohi0caIMZKcAK9vcEduFIUVIw0t7-xDxQCIdKrRM19fo5eZk9Ps_f2OqkHvv2/exec"
-      target="hidden_iframe"
-      style="display:none;">
-  <input type="hidden" name="name" id="hidden-name">
-  <input type="hidden" name="email" id="hidden-email">
-  <input type="hidden" name="company" id="hidden-company">
-  <input type="hidden" name="size" id="hidden-size">
-  <input type="hidden" name="timestamp" id="hidden-timestamp">
-</form>
-
-<iframe name="hidden_iframe" style="display:none;"></iframe>
-
 <script>
   async function submitDemo() {
     const name = document.getElementById("demo-name").value.trim();
