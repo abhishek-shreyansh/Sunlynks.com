@@ -718,7 +718,7 @@
 
 <form id="hidden-demo-form"
       method="POST"
-      action="https://script.google.com/macros/s/AKfycbzfJCAzYj3TtNMXbmveGz24zTw4CdrHEkz4XtVFmjfotXsEBAxQCQqIl11uzUG_vZXLTg/exec"
+      action="https://script.google.com/macros/s/AKfycbxDA2bohi0caIMZKcAK9vcEduFIUVIw0t7-xDxQCIdKrRM19fo5eZk9Ps_f2OqkHvv2/exec"
       target="hidden_iframe"
       style="display:none;">
   <input type="hidden" name="name" id="hidden-name">
@@ -731,7 +731,7 @@
 <iframe name="hidden_iframe" style="display:none;"></iframe>
 
 <script>
-  function submitDemo() {
+  async function submitDemo() {
     const name = document.getElementById("demo-name").value.trim();
     const email = document.getElementById("demo-email").value.trim();
     const company = document.getElementById("demo-company").value.trim();
@@ -745,36 +745,50 @@
       return;
     }
 
-    const emailPattern = /^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/;
+    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
     if (!emailPattern.test(email)) {
       msg.style.color = "red";
       msg.textContent = "Please enter a valid email.";
       return;
     }
 
-    document.getElementById("hidden-name").value = name;
-    document.getElementById("hidden-email").value = email;
-    document.getElementById("hidden-company").value = company;
-    document.getElementById("hidden-size").value = size;
-    document.getElementById("hidden-timestamp").value = new Date().toISOString();
-
     btn.disabled = true;
     btn.textContent = "Submitting...";
-    msg.style.color = "green";
+    msg.style.color = "inherit";
     msg.textContent = "Submitting your request...";
 
-    document.getElementById("hidden-demo-form").submit();
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("company", company);
+    formData.append("size", size);
+    formData.append("timestamp", new Date().toISOString());
 
-    setTimeout(() => {
+    try {
+      const res = await fetch("https://script.google.com/macros/s/AKfycbxDA2bohi0caIMZKcAK9vcEduFIUVIw0t7-xDxQCIdKrRM19fo5eZk9Ps_f2OqkHvv2/exec", {
+        method: "POST",
+        body: formData
+      });
+
+      const text = await res.text();
+
+      if (!res.ok) throw new Error("HTTP " + res.status);
+
       msg.style.color = "green";
       msg.textContent = "Thank you! Your demo request has been submitted.";
-      btn.disabled = false;
-      btn.textContent = "Book My Demo →";
+
       document.getElementById("demo-name").value = "";
       document.getElementById("demo-email").value = "";
       document.getElementById("demo-company").value = "";
       document.getElementById("demo-size").value = "";
-    }, 1500);
+    } catch (err) {
+      msg.style.color = "red";
+      msg.textContent = "Submission failed. Please try again.";
+      console.error(err);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Book My Demo →";
+    }
   }
 </script>
 
