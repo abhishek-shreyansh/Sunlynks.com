@@ -23,7 +23,6 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -33,7 +32,7 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -46,12 +45,16 @@
   }
   nav.scrolled { box-shadow: 0 2px 24px rgba(6,95,70,0.10); }
 
-  .nav-logo {
-    display: flex; align-items: center; gap: 10px;
-    font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.35rem;
-    color: var(--green-dark); text-decoration: none;
+  .nav-logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
-  .nav-logo .sun { font-size: 1.6rem; }
+
+  .nav-logo {
+    max-width: 150px;
+    display: block;
+  }
 
   .nav-links { display: flex; align-items: center; gap: 2rem; }
   .nav-links a {
@@ -90,7 +93,7 @@
   }
   .mobile-menu .nav-cta { align-self: flex-start; }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column; align-items: center;
@@ -180,7 +183,7 @@
   }
   .stat-label { font-size: .82rem; color: var(--text-muted); margin-top: .2rem; }
 
-  /* ── ROLES SECTION ── */
+  /* SECTIONS */
   .section { padding: 80px 5vw; }
   .section-label {
     display: inline-block;
@@ -199,12 +202,12 @@
     line-height: 1.7; margin-bottom: 3rem;
   }
 
+  /* ROLES */
   .roles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
   }
-
   .role-card {
     background: var(--white);
     border: 1.5px solid rgba(6,95,70,0.10);
@@ -251,7 +254,7 @@
   }
   .role-card p { font-size: .9rem; color: var(--text-muted); line-height: 1.65; }
 
-  /* ── PIPELINE SECTION ── */
+  /* PIPELINE */
   .pipeline-section {
     padding: 80px 5vw;
     background: var(--green-dark);
@@ -304,7 +307,7 @@
     font-size: .75rem; padding: .2rem .65rem; border-radius: 50px;
   }
 
-  /* ── FEATURES ── */
+  /* FEATURES */
   .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -332,7 +335,7 @@
   }
   .feature-item p { font-size: .85rem; color: var(--text-muted); line-height: 1.6; }
 
-  /* ── LOGIN SECTION ── */
+  /* LOGIN SECTION */
   .login-section {
     padding: 80px 5vw;
     background:
@@ -411,7 +414,7 @@
   }
   .form-btn:hover { background: var(--green-mid); transform: translateY(-1px); }
 
-  /* ── FOOTER ── */
+  /* FOOTER */
   footer {
     background: var(--text-dark); color: rgba(255,255,255,0.6);
     padding: 3rem 5vw 2rem;
@@ -419,7 +422,6 @@
     grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: 2rem;
   }
-  .footer-brand .nav-logo { color: #fff; margin-bottom: .8rem; }
   .footer-brand p { font-size: .85rem; line-height: 1.7; max-width: 240px; }
   .footer-col h4 {
     font-size: .85rem; font-weight: 700; color: #fff;
@@ -437,7 +439,7 @@
     border-top: 1px solid rgba(255,255,255,0.06);
   }
 
-  /* ── ANIMATIONS ── */
+  /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
@@ -449,7 +451,7 @@
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
   @media (max-width: 900px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
@@ -470,23 +472,18 @@
 
 <!-- NAV -->
 <nav id="navbar">
+  <div class="nav-logo-wrapper">
+    <img src="Modern Solar Energy Logo - SUNLYNKS (A4).png" alt="Sunlynks Logo" class="nav-logo">
+  </div>
 
-              <div >
-                <img src="Modern Solar Energy Logo - SUNLYNKS (A4).png" alt="Sunlynks Logo" class="nav-logo">
-                <style>
-                    .nav-logo{
-                        max-width: 150px;
-                    }
-                </style>
-                <i class="sun"></i>
-            </div>
   <div class="nav-links">
     <a href="#roles">Roles</a>
     <a href="#pipeline">Pipeline</a>
     <a href="#features">Features</a>
-    <a <link href="https://sunlynks.in" class="nav-cta" >Login</a>
-    
+    <!-- FIXED: proper anchor tag -->
+    <a href="https://sunlynks.in" class="nav-cta">Login</a>
   </div>
+
   <div class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
@@ -497,7 +494,8 @@
   <a href="#roles" onclick="toggleMenu()">Roles</a>
   <a href="#pipeline" onclick="toggleMenu()">Pipeline</a>
   <a href="#features" onclick="toggleMenu()">Features</a>
-  <a <link href="https://sunlynks.in" class="nav-cta" onclick="toggleMenu()">Login</a>
+  <!-- FIXED: proper anchor tag -->
+  <a href="https://sunlynks.in" class="nav-cta" onclick="toggleMenu()">Login</a>
 </div>
 
 <!-- HERO -->
@@ -652,7 +650,7 @@
           <span class="lrb-icon">👑</span>
           <div class="lrb-text">
             <strong>Master Admin</strong>
-            <span>Full system control & configuration</span>
+            <span>Full system control &amp; configuration</span>
           </div>
           <span class="lrb-arrow">→</span>
         </a>
@@ -660,7 +658,7 @@
           <span class="lrb-icon">🏢</span>
           <div class="lrb-text">
             <strong>Company Admin</strong>
-            <span>Manage teams & view overview</span>
+            <span>Manage teams &amp; view overview</span>
           </div>
           <span class="lrb-arrow">→</span>
         </a>
@@ -674,117 +672,66 @@
         </a>
       </div>
     </div>
-   <div class="login-form-card reveal">
- <div style="display:flex; align-items:center; gap:.6rem; margin-bottom:.4rem;">
-  <span style="font-size:1.5rem;">📅</span>
-  <h3 style="margin:0;">Book a Demo</h3>
-</div>
 
-<p style="font-size:.85rem; color:var(--text-muted); margin-bottom:1.5rem; line-height:1.6;">
-  See SolarCRM in action. Fill in your details and our team will reach out within 24 hours.
-</p>
+    <div class="login-form-card reveal">
+      <div style="display:flex; align-items:center; gap:.6rem; margin-bottom:.4rem;">
+        <span style="font-size:1.5rem;">📅</span>
+        <h3 style="margin:0;">Book a Demo</h3>
+      </div>
 
-<div class="form-group">
-  <label>Your Full Name</label>
-  <input type="text" placeholder="Rahul Sharma" id="demo-name">
-</div>
+      <p style="font-size:.85rem; color:var(--text-muted); margin-bottom:1.5rem; line-height:1.6;">
+        See SolarCRM in action. Fill in your details and our team will reach out within 24 hours.
+      </p>
 
-<div class="form-group">
-  <label>Work Email</label>
-  <input type="email" placeholder="rahul@solarcompany.com" id="demo-email">
-</div>
+      <div class="form-group">
+        <label>Your Full Name</label>
+        <input type="text" placeholder="Rahul Sharma" id="demo-name">
+      </div>
 
-<div class="form-group">
-  <label>Company Name</label>
-  <input type="text" placeholder="e.g. SunPower Solutions" id="demo-company">
-</div>
+      <div class="form-group">
+        <label>Work Email</label>
+        <input type="email" placeholder="rahul@solarcompany.com" id="demo-email">
+      </div>
 
-<div class="form-group">
-  <label>Team Size</label>
-  <select id="demo-size">
-    <option value="">Select your team size</option>
-    <option>1–5 people</option>
-    <option>6–20 people</option>
-    <option>21–50 people</option>
-    <option>50+ people</option>
-  </select>
-</div>
+      <div class="form-group">
+        <label>Company Name</label>
+        <input type="text" placeholder="e.g. SunPower Solutions" id="demo-company">
+      </div>
 
-<button class="form-btn" id="demo-btn" type="button" onclick="submitDemo()">
-  Book My Demo →
-</button>
+      <div class="form-group">
+        <label>Team Size</label>
+        <select id="demo-size">
+          <option value="">Select your team size</option>
+          <option>1–5 people</option>
+          <option>6–20 people</option>
+          <option>21–50 people</option>
+          <option>50+ people</option>
+        </select>
+      </div>
 
-<script>
-const WEB3FORMS_KEY = "51c86af4-3ad1-4199-8d07-a7dfe4e70bf1"; // paste key from web3forms.com
+      <button class="form-btn" id="demo-btn" type="button" onclick="submitDemo()">
+        Book My Demo →
+      </button>
 
-async function submitDemo() {
-  const btn = document.getElementById("demo-btn");
-  const name = document.getElementById("demo-name").value.trim();
-  const email = document.getElementById("demo-email").value.trim();
-  const company = document.getElementById("demo-company").value.trim();
-  const teamSize = document.getElementById("demo-size").value;
+      <!-- Success message -->
+      <div id="demo-success" style="display:none; text-align:center; margin-top:1.2rem;
+        background:var(--green-light); border-radius:12px; padding:1rem;">
+        <div style="font-size:1.6rem;">🎉</div>
+        <p style="color:var(--green-dark); font-weight:700; margin:.3rem 0 .2rem;">You're booked!</p>
+        <p style="font-size:.82rem; color:var(--text-muted);">We'll reach out within 24 hours.</p>
+      </div>
 
-  if (!name || !email || !company || !teamSize) {
-    alert("Please fill in all fields.");
-    return;
-  }
-
-  btn.disabled = true;
-  btn.textContent = "Sending…";
-
-  const res = await fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      access_key: WEB3FORMS_KEY,
-      subject: "New Demo Request — " + company,
-      name, email, company,
-      "Team Size": teamSize
-    })
-  });
-
-  const data = await res.json();
-
-  if (data.success) {
-    btn.textContent = "Booked! We'll be in touch ✓";
-    btn.style.background = "#22c55e";
-    ["demo-name","demo-email","demo-company","demo-size"]
-      .forEach(id => document.getElementById(id).disabled = true);
-  } else {
-    btn.disabled = false;
-    btn.textContent = "Book My Demo →";
-    alert("Something went wrong. Please try again.");
-  }
-}
-</script>
-
-  <!-- Success message (hidden by default) -->
-  <div id="demo-success" style="display:none; text-align:center; margin-top:1.2rem;
-    background:var(--green-light); border-radius:12px; padding:1rem;">
-    <div style="font-size:1.6rem;">🎉</div>
-    <p style="color:var(--green-dark); font-weight:700; margin:.3rem 0 .2rem;">You're booked!</p>
-    <p style="font-size:.82rem; color:var(--text-muted);">We'll reach out within 24 hours.</p>
-  </div>
-
-  <p style="text-align:center; margin-top:1rem; font-size:.8rem; color:var(--text-muted);">
-    🔒 No spam, ever. Just a quick 20-min walkthrough.
-  </p>
-</div>
+      <p style="text-align:center; margin-top:1rem; font-size:.8rem; color:var(--text-muted);">
+        🔒 No spam, ever. Just a quick 20-min walkthrough.
+      </p>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">
-    <div >
-                <img src="Modern Solar Energy Logo - SUNLYNKS (A4).png" alt="Sunlynks Logo" class="nav-logo">
-                <style>
-                    .nav-logo{
-                        max-width: 150px;
-                    }
-                </style>
-                <i class="sun"></i>
-            </div>
+    <img src="Modern Solar Energy Logo - SUNLYNKS (A4).png" alt="Sunlynks Logo" class="nav-logo">
     <p>Three-Stage Solar Project Management System built for India's growing solar workforce.</p>
   </div>
   <div class="footer-col">
@@ -809,24 +756,56 @@ async function submitDemo() {
 <div class="footer-bottom">© 2026 SunlynksCRM. All rights reserved. Built for India's solar future 🌱</div>
 
 <script>
+  const WEB3FORMS_KEY = "51c86af4-3ad1-4199-8d07-a7dfe4e70bf1";
 
-  function submitDemo() {
-    const name    = document.getElementById('demo-name').value.trim();
-    const email   = document.getElementById('demo-email').value.trim();
-    const company = document.getElementById('demo-company').value.trim();
-    const size    = document.getElementById('demo-size').value;
+  async function submitDemo() {
+    const btn = document.getElementById("demo-btn");
+    const name = document.getElementById("demo-name").value.trim();
+    const email = document.getElementById("demo-email").value.trim();
+    const company = document.getElementById("demo-company").value.trim();
+    const teamSize = document.getElementById("demo-size").value;
 
-    if (!name || !email || !company || !size) {
-      alert('Please fill in all fields before booking.');
+    if (!name || !email || !company || !teamSize) {
+      alert("Please fill in all fields.");
       return;
     }
 
-    // Hide button, show success
-    document.getElementById('demo-btn').style.display = 'none';
-    document.getElementById('demo-success').style.display = 'block';
+    btn.disabled = true;
+    btn.textContent = "Sending…";
 
-    // Here you'd normally send data to your backend / email API
-    console.log({ name, email, company, size });
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: "New Demo Request — " + company,
+          name,
+          email,
+          company,
+          "Team Size": teamSize
+        })
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        // hide button, show success box
+        btn.style.display = "none";
+        document.getElementById("demo-success").style.display = "block";
+
+        ["demo-name","demo-email","demo-company","demo-size"]
+          .forEach(id => document.getElementById(id).disabled = true);
+      } else {
+        btn.disabled = false;
+        btn.textContent = "Book My Demo →";
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = "Book My Demo →";
+      alert("Network error. Please try again.");
+    }
   }
 
   // Navbar scroll
