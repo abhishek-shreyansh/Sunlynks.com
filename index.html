@@ -715,7 +715,7 @@
 </button>
 
 <script>
- const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwkZiAjrT_1bOxhFJ4_txhbRmB3cFbd2EPkgGglXEpj3XQNFqopwZ3JSCk6DS4e6PN8yw/exec";
+const WEB3FORMS_KEY = "51c86af4-3ad1-4199-8d07-a7dfe4e70bf1"; // paste key from web3forms.com
 
 async function submitDemo() {
   const btn = document.getElementById("demo-btn");
@@ -724,7 +724,6 @@ async function submitDemo() {
   const company = document.getElementById("demo-company").value.trim();
   const teamSize = document.getElementById("demo-size").value;
 
-  // Basic validation
   if (!name || !email || !company || !teamSize) {
     alert("Please fill in all fields.");
     return;
@@ -733,20 +732,25 @@ async function submitDemo() {
   btn.disabled = true;
   btn.textContent = "Sending…";
 
-  try {
-    await fetch(APPS_SCRIPT_URL, {
-      method: "POST",
-      // NOTE: Apps Script requires text/plain to avoid a CORS preflight
-      headers: { "Content-Type": "text/plain" },
-      body: JSON.stringify({ name, email, company, teamSize }),
-    });
+  const res = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_KEY,
+      subject: "New Demo Request — " + company,
+      name, email, company,
+      "Team Size": teamSize
+    })
+  });
 
+  const data = await res.json();
+
+  if (data.success) {
     btn.textContent = "Booked! We'll be in touch ✓";
     btn.style.background = "#22c55e";
-    ["demo-name", "demo-email", "demo-company", "demo-size"].forEach(
-      (id) => (document.getElementById(id).disabled = true)
-    );
-  } catch (err) {
+    ["demo-name","demo-email","demo-company","demo-size"]
+      .forEach(id => document.getElementById(id).disabled = true);
+  } else {
     btn.disabled = false;
     btn.textContent = "Book My Demo →";
     alert("Something went wrong. Please try again.");
