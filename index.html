@@ -715,65 +715,43 @@
 </button>
 
 <script>
-  async function submitDemo() {
-    const name = document.getElementById("demo-name").value.trim();
-    const email = document.getElementById("demo-email").value.trim();
-    const company = document.getElementById("demo-company").value.trim();
-    const size = document.getElementById("demo-size").value;
-    const msg = document.getElementById("demo-message");
-    const btn = document.getElementById("demo-btn");
+ const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwkZiAjrT_1bOxhFJ4_txhbRmB3cFbd2EPkgGglXEpj3XQNFqopwZ3JSCk6DS4e6PN8yw/exec";
 
-    if (!name || !email || !company || !size) {
-      msg.style.color = "red";
-      msg.textContent = "Please fill all fields.";
-      return;
-    }
+async function submitDemo() {
+  const btn = document.getElementById("demo-btn");
+  const name = document.getElementById("demo-name").value.trim();
+  const email = document.getElementById("demo-email").value.trim();
+  const company = document.getElementById("demo-company").value.trim();
+  const teamSize = document.getElementById("demo-size").value;
 
-    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-    if (!emailPattern.test(email)) {
-      msg.style.color = "red";
-      msg.textContent = "Please enter a valid email.";
-      return;
-    }
-
-    btn.disabled = true;
-    btn.textContent = "Submitting...";
-    msg.style.color = "inherit";
-    msg.textContent = "Submitting your request...";
-
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("company", company);
-    formData.append("size", size);
-    formData.append("timestamp", new Date().toISOString());
-
-    try {
-      const res = await fetch("https://script.google.com/macros/s/AKfycbxDA2bohi0caIMZKcAK9vcEduFIUVIw0t7-xDxQCIdKrRM19fo5eZk9Ps_f2OqkHvv2/exec", {
-        method: "POST",
-        body: formData
-      });
-
-      const text = await res.text();
-
-      if (!res.ok) throw new Error("HTTP " + res.status);
-
-      msg.style.color = "green";
-      msg.textContent = "Thank you! Your demo request has been submitted.";
-
-      document.getElementById("demo-name").value = "";
-      document.getElementById("demo-email").value = "";
-      document.getElementById("demo-company").value = "";
-      document.getElementById("demo-size").value = "";
-    } catch (err) {
-      msg.style.color = "red";
-      msg.textContent = "Submission failed. Please try again.";
-      console.error(err);
-    } finally {
-      btn.disabled = false;
-      btn.textContent = "Book My Demo →";
-    }
+  // Basic validation
+  if (!name || !email || !company || !teamSize) {
+    alert("Please fill in all fields.");
+    return;
   }
+
+  btn.disabled = true;
+  btn.textContent = "Sending…";
+
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      // NOTE: Apps Script requires text/plain to avoid a CORS preflight
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify({ name, email, company, teamSize }),
+    });
+
+    btn.textContent = "Booked! We'll be in touch ✓";
+    btn.style.background = "#22c55e";
+    ["demo-name", "demo-email", "demo-company", "demo-size"].forEach(
+      (id) => (document.getElementById(id).disabled = true)
+    );
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = "Book My Demo →";
+    alert("Something went wrong. Please try again.");
+  }
+}
 </script>
 
   <!-- Success message (hidden by default) -->
