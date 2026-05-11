@@ -513,7 +513,7 @@
       <div class="stat-label">Integrated Teams</div>
     </div>
     <div class="stat">
-      <div class="stat-num">∞</div>
+      <div class="stat-num">2</div>
       <div class="stat-label">Projects Tracked</div>
     </div>
     <div class="stat">
@@ -694,6 +694,11 @@
       </div>
 
       <div class="form-group">
+        <label>Contact</label>
+        <input type="number" placeholder="e.g. +91 9304364781" id="demo-contact">
+      </div>
+
+      <div class="form-group">
         <label>Company Name</label>
         <input type="text" placeholder="e.g. SunPower Solutions" id="demo-company">
       </div>
@@ -762,10 +767,11 @@
     const btn = document.getElementById("demo-btn");
     const name = document.getElementById("demo-name").value.trim();
     const email = document.getElementById("demo-email").value.trim();
+    const contact = document.getElementById("demo-contact").value.trim();
     const company = document.getElementById("demo-company").value.trim();
     const teamSize = document.getElementById("demo-size").value;
 
-    if (!name || !email || !company || !teamSize) {
+    if (!name || !email || !contact || !company || !teamSize) {
       alert("Please fill in all fields.");
       return;
     }
@@ -782,6 +788,7 @@
           subject: "New Demo Request — " + company,
           name,
           email,
+          contact,
           company,
           "Team Size": teamSize
         })
@@ -794,7 +801,7 @@
         btn.style.display = "none";
         document.getElementById("demo-success").style.display = "block";
 
-        ["demo-name","demo-email","demo-company","demo-size"]
+        ["demo-name","demo-email","demo-contact","demo-company","demo-size"]
           .forEach(id => document.getElementById(id).disabled = true);
       } else {
         btn.disabled = false;
