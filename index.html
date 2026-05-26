@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunlynks — India's Complete Solar Ecosystem</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g:#065f46; --gm:#134e4a; --gl:#d1fae5; --gx:#ecfdf5;
+  --o:#ea580c; --ow:#f97316; --og:#fed7aa;
+  --cr:#fef3c7; --cd:#fde68a;
+  --w:#fffdf7; --dk:#0a1a10; --tx:#0f2117; --mu:#4a6741;
+  --bd:rgba(6,95,70,.11);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--w);color:var(--tx);overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-thumb{background:var(--g);border-radius:4px;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;height:64px;
+  background:rgba(255,253,247,.94);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--bd);transition:box-shadow .3s;
+}
+nav.up{box-shadow:0 2px 28px rgba(6,95,70,.10);}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;}
+.licon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--g),var(--gm));display:flex;align-items:center;justify-content:center;font-size:.95rem;}
+.lname{font-family:'Fraunces',serif;font-weight:900;font-size:1.18rem;color:var(--g);}
+.lname s2{color:var(--o);font-style:normal;}
+.nl{display:flex;align-items:center;gap:1.6rem;}
+.nl a{font-size:.86rem;font-weight:500;color:var(--mu);text-decoration:none;transition:color .2s;}
+.nl a:hover{color:var(--g);}
+.npill{background:var(--o);color:#fff!important;padding:.44rem 1.25rem;border-radius:50px;font-weight:700!important;transition:all .2s!important;}
+.npill:hover{background:var(--ow)!important;transform:translateY(-1px);}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hbg span{width:22px;height:2px;background:var(--g);border-radius:2px;transition:all .3s;}
+.hbg.x span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hbg.x span:nth-child(2){opacity:0;}
+.hbg.x span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mob{display:none;position:fixed;inset:64px 0 0;z-index:299;background:var(--w);padding:2rem 5vw;flex-direction:column;gap:1.3rem;border-top:1px solid var(--bd);}
+.mob.on{display:flex;}
+.mob a{font-size:1.05rem;font-weight:600;color:var(--mu);text-decoration:none;}
+.mob .npill{align-self:flex-start;color:#fff!important;}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:90px 5vw 60px;position:relative;overflow:hidden;
+}
+/* animated gradient bg */
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 75% 60% at 20% 10%, rgba(6,95,70,.09) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 55% at 80% 90%, rgba(234,88,12,.07) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(254,243,199,.5) 0%,transparent 70%),
+    var(--w);
+}
+/* floating orbs */
+.orb{position:absolute;border-radius:50%;pointer-events:none;z-index:0;}
+.orb1{width:480px;height:480px;background:radial-gradient(circle,rgba(6,95,70,.08),transparent 70%);top:-120px;left:-80px;animation:drift1 18s ease-in-out infinite;}
+.orb2{width:380px;height:380px;background:radial-gradient(circle,rgba(234,88,12,.07),transparent 70%);bottom:-80px;right:-60px;animation:drift2 14s ease-in-out infinite;}
+.orb3{width:220px;height:220px;background:radial-gradient(circle,rgba(254,211,150,.3),transparent 70%);top:30%;right:8%;animation:drift1 20s ease-in-out infinite reverse;}
+@keyframes drift1{0%,100%{transform:translate(0,0);}50%{transform:translate(20px,-24px);}}
+@keyframes drift2{0%,100%{transform:translate(0,0);}50%{transform:translate(-18px,20px);}}
+
+.hero-in{position:relative;z-index:1;max-width:900px;margin:0 auto;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.45rem;
+  background:var(--cr);border:1px solid var(--cd);
+  color:var(--o);font-size:.78rem;font-weight:700;
+  padding:.3rem .95rem;border-radius:50px;margin-bottom:1.7rem;
+  animation:up .5s ease both;
+}
+.hero h1{
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:clamp(2.8rem,7vw,5rem);line-height:1.03;
+  color:var(--g);animation:up .6s .06s ease both;
+}
+.hero h1 em{font-style:italic;color:var(--o);}
+.hero h1 .ul-wrap{position:relative;display:inline-block;}
+.hero h1 .ul-wrap::after{
+  content:'';position:absolute;bottom:2px;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--o),var(--g));border-radius:3px;
+}
+.hero-sub{
+  font-size:clamp(.95rem,2vw,1.13rem);color:var(--mu);
+  line-height:1.8;max-width:600px;margin:1.3rem auto 0;
+  animation:up .6s .12s ease both;
+}
+.hero-pills{
+  display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;
+  margin-top:2rem;animation:up .6s .18s ease both;
+}
+.hpill{
+  display:flex;align-items:center;gap:.4rem;
+  background:var(--w);border:1.5px solid var(--bd);
+  border-radius:50px;padding:.35rem .9rem;
+  font-size:.8rem;font-weight:600;color:var(--g);
+}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;margin-top:2.2rem;animation:up .6s .24s ease both;}
+.btn-g{background:var(--g);color:#fff;padding:.85rem 2rem;border-radius:50px;font-size:.95rem;font-weight:700;text-decoration:none;transition:all .2s;box-shadow:0 4px 18px rgba(6,95,70,.22);}
+.btn-g:hover{background:var(--gm);transform:translateY(-2px);box-shadow:0 8px 28px rgba(6,95,70,.28);}
+.btn-o{background:var(--o);color:#fff;padding:.85rem 2rem;border-radius:50px;font-size:.95rem;font-weight:700;text-decoration:none;transition:all .2s;box-shadow:0 4px 18px rgba(234,88,12,.22);}
+.btn-o:hover{background:var(--ow);transform:translateY(-2px);}
+
+/* scroll indicator */
+.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:1;display:flex;flex-direction:column;align-items:center;gap:.4rem;opacity:.5;animation:up .6s .5s ease both;}
+.scroll-hint span{font-size:.7rem;font-weight:600;color:var(--mu);letter-spacing:.06em;text-transform:uppercase;}
+.scroll-dot{width:2px;height:32px;background:linear-gradient(to bottom,var(--g),transparent);border-radius:2px;animation:scrollpulse 1.8s ease-in-out infinite;}
+@keyframes scrollpulse{0%,100%{transform:scaleY(1);opacity:.5;}50%{transform:scaleY(.5);opacity:1;}}
+
+/* ── NUMBERS BAR ── */
+.numbar{background:var(--g);padding:.9rem 5vw;display:flex;gap:2.5rem;flex-wrap:wrap;justify-content:center;align-items:center;}
+.nb{text-align:center;}
+.nb-n{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:900;color:var(--cr);}
+.nb-l{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:.1rem;}
+.nb-div{width:1px;height:30px;background:rgba(255,255,255,.15);}
+
+/* ── SECTION BASE ── */
+.sec{padding:90px 5vw;}
+.sec-in{max-width:1160px;margin:0 auto;}
+.pill{display:inline-block;background:var(--cr);color:var(--o);font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.28rem .9rem;border-radius:50px;margin-bottom:.85rem;}
+.pill-w{background:rgba(254,243,199,.15);color:var(--cd);}
+.sh{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,2.9rem);font-weight:900;color:var(--g);line-height:1.1;margin-bottom:.85rem;}
+.sh-w{color:#fff;}
+.sp{font-size:1rem;color:var(--mu);line-height:1.75;max-width:520px;margin-bottom:2.5rem;}
+.sp-w{color:rgba(255,255,255,.65);margin-bottom:2.5rem;}
+
+/* ── THREE PLATFORMS ── */
+.platforms{background:var(--cr);}
+.plat-intro{text-align:center;margin-bottom:3.5rem;}
+.plat-intro .sh{margin:0 auto .85rem;}
+.plat-intro .sp{margin:0 auto 0;}
+.plat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.5rem;}
+.plat-card{
+  border-radius:24px;padding:2.2rem;position:relative;overflow:hidden;
+  transition:transform .3s,box-shadow .3s;cursor:pointer;
+}
+.plat-card:hover{transform:translateY(-7px);box-shadow:0 20px 60px rgba(6,95,70,.18);}
+.plat-card.crm{background:var(--g);}
+.plat-card.vendor{background:var(--w);border:2px solid var(--bd);}
+.plat-card.consumer{background:var(--o);}
+/* deco circles */
+.plat-card::before,.plat-card::after{content:'';position:absolute;border-radius:50%;pointer-events:none;}
+.plat-card.crm::before{width:200px;height:200px;background:rgba(255,255,255,.05);top:-60px;right:-60px;}
+.plat-card.crm::after{width:120px;height:120px;background:rgba(255,255,255,.04);bottom:-30px;left:-30px;}
+.plat-card.consumer::before{width:200px;height:200px;background:rgba(255,255,255,.08);top:-60px;right:-60px;}
+.pc-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:.25rem .8rem;border-radius:50px;margin-bottom:1.3rem;}
+.crm .pc-tag{background:rgba(255,255,255,.12);color:rgba(255,255,255,.8);}
+.vendor .pc-tag{background:var(--cr);color:var(--o);}
+.consumer .pc-tag{background:rgba(255,255,255,.18);color:#fff;}
+.pc-icon{font-size:2.2rem;margin-bottom:1rem;display:block;}
+.pc-h{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:900;margin-bottom:.6rem;}
+.crm .pc-h,.consumer .pc-h{color:#fff;}
+.vendor .pc-h{color:var(--g);}
+.pc-p{font-size:.87rem;line-height:1.65;margin-bottom:1.5rem;}
+.crm .pc-p,.consumer .pc-p{color:rgba(255,255,255,.7);}
+.vendor .pc-p{color:var(--mu);}
+.pc-features{list-style:none;margin-bottom:1.8rem;}
+.pc-features li{font-size:.83rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:.6rem;}
+.vendor .pc-features li{border-bottom-color:var(--bd);}
+.pc-features li::before{content:'→';font-size:.75rem;flex-shrink:0;}
+.crm .pc-features li,.consumer .pc-features li{color:rgba(255,255,255,.8);}
+.crm .pc-features li::before,.consumer .pc-features li::before{color:var(--cd);}
+.vendor .pc-features li{color:var(--mu);}
+.vendor .pc-features li::before{color:var(--o);}
+.pc-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.5rem;border-radius:50px;font-size:.87rem;font-weight:700;text-decoration:none;transition:all .2s;}
+.crm .pc-btn{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.25);}
+.crm .pc-btn:hover{background:rgba(255,255,255,.25);}
+.vendor .pc-btn{background:var(--g);color:#fff;}
+.vendor .pc-btn:hover{background:var(--gm);}
+.consumer .pc-btn{background:#fff;color:var(--o);}
+.consumer .pc-btn:hover{background:var(--cr);}
+
+/* ── HOW SUNLINK WORKS ── */
+.flow-sec{background:var(--g);}
+.flow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(255,255,255,.08);border-radius:20px;overflow:hidden;}
+.flow-step{padding:2rem 1.6rem;background:var(--gm);text-align:center;transition:background .2s;}
+.flow-step:hover{background:rgba(255,255,255,.05);}
+.fs-num{width:42px;height:42px;border-radius:50%;background:var(--o);color:#fff;font-family:'Fraunces',serif;font-size:1rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto .9rem;}
+.fs-icon{font-size:1.5rem;margin-bottom:.6rem;}
+.flow-step h4{font-family:'Fraunces',serif;font-size:.95rem;font-weight:800;color:var(--cr);margin-bottom:.4rem;}
+.flow-step p{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.6;}
+
+/* ── WHO IS IT FOR ── */
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;}
+.who-card{padding:1.8rem;border-radius:20px;border:1.5px solid var(--bd);background:var(--w);transition:all .25s;position:relative;}
+.who-card:hover{transform:translateY(-4px);box-shadow:0 10px 40px rgba(6,95,70,.10);border-color:var(--g);}
+.who-avatar{font-size:2.5rem;margin-bottom:.9rem;}
+.who-card h4{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:800;color:var(--g);margin-bottom:.5rem;}
+.who-card p{font-size:.84rem;color:var(--mu);line-height:1.65;margin-bottom:1rem;}
+.who-tag{display:inline-block;background:var(--gx);color:var(--g);font-size:.73rem;font-weight:700;padding:.22rem .7rem;border-radius:50px;}
+
+/* ── SPECS STRIP ── */
+.specs-strip{background:var(--cr);padding:60px 5vw;}
+.specs-strip-in{max-width:1160px;margin:0 auto;}
+.spec-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;}
+.spec-item{background:var(--w);border-radius:16px;padding:1.4rem;border:1.5px solid rgba(6,95,70,.09);transition:transform .2s;}
+.spec-item:hover{transform:translateY(-3px);}
+.si-top{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem;}
+.si-icon{font-size:1.4rem;}
+.si-title{font-family:'Fraunces',serif;font-size:.95rem;font-weight:800;color:var(--g);}
+.brand-list{display:flex;flex-wrap:wrap;gap:.4rem;}
+.bchip{background:var(--cr);color:var(--o);font-size:.71rem;font-weight:700;padding:.2rem .65rem;border-radius:50px;border:1px solid var(--cd);}
+.polycab-bar{margin-top:1.4rem;background:var(--g);border-radius:14px;padding:1rem 1.4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+.polycab-bar span{font-size:.85rem;color:rgba(255,255,255,.8);}
+.polycab-bar strong{color:var(--cr);}
+
+/* ── PRICING QUICK ── */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;}
+.price-card{border-radius:20px;padding:1.6rem;border:2px solid var(--bd);background:var(--w);text-align:center;transition:all .3s;position:relative;}
+.price-card:hover{transform:translateY(-5px);box-shadow:0 12px 40px rgba(6,95,70,.12);border-color:var(--g);}
+.price-card.hot{border-color:var(--o);background:linear-gradient(160deg,#fff8f4,var(--w));}
+.hot-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--o);color:#fff;font-size:.68rem;font-weight:800;padding:.22rem .8rem;border-radius:50px;white-space:nowrap;}
+.price-kw{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:900;color:var(--g);line-height:1;}
+.price-kw sub{font-size:1rem;color:var(--mu);}
+.price-type{font-size:.78rem;color:var(--mu);margin:.3rem 0 .8rem;}
+.price-amt{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:900;color:var(--o);margin-bottom:.5rem;}
+.price-save{font-size:.78rem;color:var(--g);font-weight:600;background:var(--gx);padding:.2rem .6rem;border-radius:50px;display:inline-block;margin-bottom:1rem;}
+.price-cta{display:block;background:var(--g);color:#fff;padding:.6rem;border-radius:10px;font-size:.83rem;font-weight:700;text-decoration:none;transition:all .2s;}
+.price-card.hot .price-cta{background:var(--o);}
+.price-cta:hover{opacity:.88;}
+
+/* ── PROMISE ── */
+.promise-sec{background:var(--g);}
+.promise-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.promise-left .sh-w{max-width:480px;}
+.promise-left .sp-w{max-width:440px;}
+.promise-cards{display:flex;flex-direction:column;gap:.9rem;}
+.pcard{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:1.3rem 1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:background .2s;}
+.pcard:hover{background:rgba(255,255,255,.11);}
+.pcard-icon{font-size:1.3rem;flex-shrink:0;margin-top:.1rem;}
+.pcard h4{font-family:'Fraunces',serif;font-size:.95rem;font-weight:800;color:var(--cr);margin-bottom:.25rem;}
+.pcard p{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.6;}
+.refund-pcard{background:rgba(234,88,12,.2);border-color:rgba(234,88,12,.4);}
+
+/* ── PAN INDIA ── */
+.india-sec{background:var(--cr);padding:60px 5vw;}
+.india-in{max-width:1160px;margin:0 auto;display:flex;align-items:center;gap:3rem;flex-wrap:wrap;justify-content:space-between;}
+.india-text{}
+.india-text h3{font-family:'Fraunces',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:var(--g);margin-bottom:.6rem;}
+.india-text p{font-size:.93rem;color:var(--mu);line-height:1.7;max-width:440px;}
+.state-cloud{display:flex;flex-wrap:wrap;gap:.5rem;max-width:580px;}
+.schip{background:var(--w);color:var(--g);font-size:.76rem;font-weight:600;padding:.28rem .75rem;border-radius:50px;border:1px solid rgba(6,95,70,.12);}
+.schip.active{background:var(--g);color:#fff;}
+
+/* ── FINAL CTA ── */
+.final-cta{
+  padding:90px 5vw;text-align:center;
+  background:linear-gradient(160deg,var(--g) 0%,var(--gm) 100%);
+  position:relative;overflow:hidden;
+}
+.final-cta::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(234,88,12,.18),transparent 70%);}
+.final-cta::after{content:'';position:absolute;bottom:-100px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.04),transparent 70%);}
+.final-cta h2{font-family:'Fraunces',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:#fff;line-height:1.07;max-width:680px;margin:0 auto .9rem;position:relative;z-index:1;}
+.final-cta h2 em{font-style:italic;color:var(--cd);}
+.final-cta p{font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:2.2rem;position:relative;z-index:1;}
+.cta-row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;position:relative;z-index:1;}
+.btn-cr{background:var(--cr);color:var(--g);padding:.9rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:800;text-decoration:none;transition:all .2s;}
+.btn-cr:hover{background:#fff;transform:translateY(-2px);}
+.btn-ow{background:var(--o);color:#fff;padding:.9rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:800;text-decoration:none;transition:all .2s;}
+.btn-ow:hover{background:var(--ow);transform:translateY(-2px);}
+.btn-tr{background:transparent;color:rgba(255,255,255,.8);border:2px solid rgba(255,255,255,.3);padding:.9rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:700;text-decoration:none;transition:all .2s;}
+.btn-tr:hover{background:rgba(255,255,255,.1);color:#fff;}
+
+/* ── FOOTER ── */
+footer{background:var(--dk);padding:3.5rem 5vw 0;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;}
+.fb-brand .lname{color:#fff;font-size:1.2rem;}
+.fb-brand p{font-size:.81rem;color:rgba(255,255,255,.45);line-height:1.7;max-width:220px;margin-top:.6rem;}
+.fcol h5{font-size:.76rem;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.9rem;}
+.fcol a{display:block;font-size:.8rem;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:.48rem;transition:color .2s;}
+.fcol a:hover{color:var(--cr);}
+.fbot{background:var(--dk);border-top:1px solid rgba(255,255,255,.05);margin-top:2.5rem;padding:1.2rem 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:.75rem;color:rgba(255,255,255,.25);}
+
+/* ── ANIM ── */
+@keyframes up{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .65s,transform .65s;}
+.rv.on{opacity:1;transform:translateY(0);}
+.rv-l{opacity:0;transform:translateX(-22px);transition:opacity .65s,transform .65s;}
+.rv-l.on{opacity:1;transform:translateX(0);}
+.rv-r{opacity:0;transform:translateX(22px);transition:opacity .65s,transform .65s;}
+.rv-r.on{opacity:1;transform:translateX(0);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .nl a:not(.npill){display:none;}.hbg{display:flex;}
+  .who-grid{grid-template-columns:1fr 1fr;}
+  .promise-grid{grid-template-columns:1fr;}
+  footer{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .who-grid{grid-template-columns:1fr;}
+  footer{grid-template-columns:1fr;}
+  .nb-div{display:none;}
+  .india-in{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo"><div class="licon">☀️</div><div class="lname">Sun<s2>Link</s2></div></a>
+  <div class="nl">
+    <a href="index.html">Home</a>
+    <a href="consumer.html">Consumer</a>
+    <a href="vendor.html">Vendor</a>
+    <a href="crm.html">SunlynksCRM</a>
+    <a href="#consumer" class="npill">Get Solar Quote →</a>
+  </div>
+  <div class="hbg" id="hbg" onclick="tmob()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob" id="mob">
+  <a href="index.html" onclick="cmob()">Home</a>
+  <a href="consumer.html" onclick="cmob()">Consumer</a>
+  <a href="vendor.html" onclick="cmob()">Vendor</a>
+  <a href="crm.html" onclick="cmob()">SunlynksCRM</a>
+  <a href="#consumer" class="npill" onclick="cmob()">Get Solar Quote →</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="hero-in">
+    <div class="hero-eyebrow">🇮🇳 India's Complete Solar Ecosystem Platform</div>
+    <h1>One Platform.<br>Every Solar <em>Need.</em><br><span class="ul-wrap">Pan India.</span></h1>
+    <p class="hero-sub">SunLink powers solar businesses, connects vendors, and helps homeowners switch to solar — with verified quality, bank financing, and a 100% money-back promise.</p>
+    <div class="hero-pills">
+      <div class="hpill">☀️ Solar CRM for Companies</div>
+      <div class="hpill">🏪 Vendor Network</div>
+      <div class="hpill">🏠 Consumer Installation</div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#consumer" class="btn-g">Get Solar for My Home →</a>
+      <a href="#vendor" class="btn-o">Register as Vendor</a>
+      <a href="#crm" class="btn-outline" style="background:transparent;color:var(--g);border:2px solid var(--g);padding:.85rem 2rem;border-radius:50px;font-size:.95rem;font-weight:700;text-decoration:none;transition:all .2s;">Try SolarCRM</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="scroll-dot"></div></div>
+</section>
+
+<!-- NUMBERS BAR -->
+<div class="numbar">
+  <div class="nb"><div class="nb-n">3</div><div class="nb-l">Integrated Platforms</div></div>
+  <div class="nb-div"></div>
+  <div class="nb"><div class="nb-n">28+</div><div class="nb-l">States Covered</div></div>
+  <div class="nb-div"></div>
+  <div class="nb"><div class="nb-n">500+</div><div class="nb-l">Verified Vendors</div></div>
+  <div class="nb-div"></div>
+  <div class="nb"><div class="nb-n">₹0</div><div class="nb-l">Registration Fee</div></div>
+  <div class="nb-div"></div>
+  <div class="nb"><div class="nb-n">100%</div><div class="nb-l">Money-Back Promise</div></div>
+  <div class="nb-div"></div>
+  <div class="nb"><div class="nb-n">24h</div><div class="nb-l">Onboarding Speed</div></div>
+</div>
+
+<!-- ══ THREE PLATFORMS ══ -->
+<section class="sec platforms" id="platforms">
+  <div class="sec-in">
+    <div class="plat-intro rv">
+      <span class="pill">What We Offer</span>
+      <h2 class="sh" style="text-align:center;margin-bottom:.9rem;">Three Platforms. One Solar Ecosystem.</h2>
+      <p class="sp" style="text-align:center;margin:0 auto;">Whether you run a solar company, work as an installer, or simply want solar at home — SunLink has a platform built exactly for you.</p>
+    </div>
+    <div class="plat-grid">
+
+      <!-- SolarCRM -->
+      <div class="plat-card crm rv" id="crm">
+        <span class="pc-tag">🖥️ For Solar Companies</span>
+        <span class="pc-icon">⚙️</span>
+        <div class="pc-h">SolarCRM</div>
+        <p class="pc-p">A three-stage project management CRM built for India's solar industry. Manage your Sales, Finance, and Execution teams from one unified dashboard.</p>
+        <ul class="pc-features">
+          <li>Sales Team — Site Visit, Document Upload, ID Creation</li>
+          <li>Finance Team — Loan Processing, Bank Coordination</li>
+          <li>Execution Team — Installation, Net Metering, Commissioning</li>
+          <li>Role-based access: Master Admin, Company Admin, Employee</li>
+          <li>Real-time pipeline tracking for every project</li>
+        </ul>
+        <a href="#" class="pc-btn">Explore SolarCRM →</a>
+      </div>
+
+      <!-- Vendor -->
+      <div class="plat-card vendor rv" id="vendor">
+        <span class="pc-tag">🏪 For Solar Vendors</span>
+        <span class="pc-icon">🔧</span>
+        <div class="pc-h">Vendor Portal</div>
+        <p class="pc-p">Register your solar business on SunLink's pan-India vendor network. Receive verified leads, get monthly training, and grow your team with our support.</p>
+        <ul class="pc-features">
+          <li>Free vendor registration — no hidden charges</li>
+          <li>Verified leads matched to your city & category</li>
+          <li>Bank finance & loan facilitation support</li>
+          <li>Monthly skill orientation — sales, tech & policy</li>
+          <li>Connect with market leaders & build your team</li>
+        </ul>
+        <a href="#" class="pc-btn">Register as Vendor →</a>
+      </div>
+
+      <!-- Consumer -->
+      <div class="plat-card consumer rv" id="consumer">
+        <span class="pc-tag">🏠 For Homeowners</span>
+        <span class="pc-icon">🏡</span>
+        <div class="pc-h">Go Solar at Home</div>
+        <p class="pc-p">Get a free solar quote, choose your system size, and we connect you with a verified local installer — with bank loan support and full quality protection.</p>
+        <ul class="pc-features">
+          <li>3 kW, 5 kW, 8 kW &amp; 10 kW packages available</li>
+          <li>Branded panels — Adani, Waaree, Vikram, Tata</li>
+          <li>Certified inverters &amp; 100% Polycab wiring</li>
+          <li>PM Surya Ghar subsidy — up to ₹78,000 savings</li>
+          <li>100% refund if vendor fails on quality or speed</li>
+        </ul>
+        <a href="#pricing" class="pc-btn">See Prices &amp; Get Quote →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW SUNLINK WORKS ══ -->
+<section class="sec flow-sec" id="how">
+  <div class="sec-in">
+    <div style="text-align:center;margin-bottom:2.8rem;">
+      <span class="pill pill-w rv">End to End Process</span>
+      <h2 class="sh sh-w rv" style="text-align:center;">How SunLink Works</h2>
+      <p class="sp sp-w rv" style="text-align:center;margin:0 auto;">One seamless flow — from a customer's first enquiry to a fully commissioned solar system.</p>
+    </div>
+    <div class="flow-grid rv">
+      <div class="flow-step">
+        <div class="fs-num">1</div>
+        <div class="fs-icon">📋</div>
+        <h4>Customer Enquiry</h4>
+        <p>Homeowner fills form with load, location & size preference. Uploads their Bijli Bill.</p>
+      </div>
+      <div class="flow-step">
+        <div class="fs-num">2</div>
+        <div class="fs-icon">🔍</div>
+        <h4>Vendor Matching</h4>
+        <p>SunLink matches the lead to a verified, top-rated local solar vendor instantly.</p>
+      </div>
+      <div class="flow-step">
+        <div class="fs-num">3</div>
+        <div class="fs-icon">📐</div>
+        <h4>Site Survey & Quote</h4>
+        <p>Vendor conducts a free site visit and delivers a precise, transparent installation quote.</p>
+      </div>
+      <div class="flow-step">
+        <div class="fs-num">4</div>
+        <div class="fs-icon">🏦</div>
+        <h4>Finance & Subsidy</h4>
+        <p>SunLink handles bank loan coordination and PM Surya Ghar subsidy application.</p>
+      </div>
+      <div class="flow-step">
+        <div class="fs-num">5</div>
+        <div class="fs-icon">⚡</div>
+        <h4>Installation</h4>
+        <p>Vendor installs using only branded panels, certified inverters, and Polycab wiring.</p>
+      </div>
+      <div class="flow-step">
+        <div class="fs-num">6</div>
+        <div class="fs-icon">🌞</div>
+        <h4>Commission & Save</h4>
+        <p>Net metering setup, DISCOM approval done. Your meter runs backwards. You save money.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHO IS IT FOR ══ -->
+<section class="sec" style="background:var(--w);">
+  <div class="sec-in">
+    <span class="pill rv">Built For Everyone in Solar</span>
+    <h2 class="sh rv">Who Uses SunLink?</h2>
+    <div class="who-grid">
+      <div class="who-card rv">
+        <div class="who-avatar">👑</div>
+        <h4>Solar Company Owners</h4>
+        <p>Manage your entire solar project pipeline — from lead to commissioning — across Sales, Finance, and Execution teams with role-based access.</p>
+        <span class="who-tag">SolarCRM Platform</span>
+      </div>
+      <div class="who-card rv">
+        <div class="who-avatar">🔧</div>
+        <h4>Local Solar Vendors & Installers</h4>
+        <p>Register free, receive verified leads in your area, get monthly training, connect with market leaders, and grow your installation business pan India.</p>
+        <span class="who-tag">Vendor Portal</span>
+      </div>
+      <div class="who-card rv">
+        <div class="who-avatar">🏠</div>
+        <h4>Homeowners & Residential Buyers</h4>
+        <p>Compare solar packages, get a free quote, avail bank loans and government subsidies, and get solar installed by a trusted local vendor — fully protected.</p>
+        <span class="who-tag">Consumer Platform</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SPECIFICATIONS STRIP ══ -->
+<section class="specs-strip" id="specs">
+  <div class="specs-strip-in">
+    <div style="text-align:center;margin-bottom:2rem;">
+      <span class="pill rv">Only Branded Components</span>
+      <h2 class="sh rv" style="text-align:center;">Quality You Can Trust</h2>
+    </div>
+    <div class="spec-row">
+      <div class="spec-item rv">
+        <div class="si-top"><span class="si-icon">🔆</span><span class="si-title">Solar Panels</span></div>
+        <div class="brand-list">
+          <span class="bchip">Adani Solar</span><span class="bchip">Waaree</span>
+          <span class="bchip">Vikram Solar</span><span class="bchip">Tata Power Solar</span>
+        </div>
+      </div>
+      <div class="spec-item rv">
+        <div class="si-top"><span class="si-icon">⚡</span><span class="si-title">Inverters</span></div>
+        <div class="brand-list">
+          <span class="bchip">Invergy</span><span class="bchip">Luminous</span>
+          <span class="bchip">Waaree</span><span class="bchip">Polycab</span><span class="bchip">Havells</span>
+        </div>
+      </div>
+      <div class="spec-item rv">
+        <div class="si-top"><span class="si-icon">🏗️</span><span class="si-title">Mounting Structure</span></div>
+        <div class="brand-list">
+          <span class="bchip">Hot-Dip GI Structure</span>
+          <span class="bchip">Standard GI Structure</span>
+        </div>
+      </div>
+      <div class="spec-item rv">
+        <div class="si-top"><span class="si-icon">🔌</span><span class="si-title">Wiring & Cables</span></div>
+        <div class="brand-list">
+          <span class="bchip">100% Polycab</span>
+        </div>
+      </div>
+    </div>
+    <div class="polycab-bar rv">
+      <span style="font-size:1.4rem;">🏆</span>
+      <span>All solar systems use <strong>100% Polycab DC & AC cables</strong> — India's #1 certified cable brand. UV-resistant, fire-retardant, rated for 25-year outdoor use. No substitution, ever.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUICK PRICING ══ -->
+<section class="sec" style="background:var(--w);" id="pricing">
+  <div class="sec-in">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <span class="pill rv">Transparent Pricing</span>
+      <h2 class="sh rv" style="text-align:center;">Solar Packages for Every Home</h2>
+      <p class="sp rv" style="text-align:center;margin:0 auto 0;">All-inclusive approximate pricing. Final quote after free site survey. PM Surya Ghar subsidy up to ₹78,000 applicable.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card rv">
+        <div class="price-kw">3<sub>kW</sub></div>
+        <div class="price-type">Small Home · 2–3 BHK</div>
+        <div class="price-amt">₹2,30,000</div>
+        <div class="price-save">Save ~₹2,200/month</div>
+        <a href="#" class="price-cta">Get Quote</a>
+      </div>
+      <div class="price-card hot rv">
+        <div class="hot-badge">⭐ Most Popular</div>
+        <div class="price-kw">5<sub>kW</sub></div>
+        <div class="price-type">Medium Home · 3–4 BHK</div>
+        <div class="price-amt">₹3,40,000</div>
+        <div class="price-save">Save ~₹3,800/month</div>
+        <a href="#" class="price-cta">Get Quote</a>
+      </div>
+      <div class="price-card rv">
+        <div class="price-kw">8<sub>kW</sub></div>
+        <div class="price-type">Large Home · Villa / Bungalow</div>
+        <div class="price-amt">₹5,20,000</div>
+        <div class="price-save">Save ~₹5,800/month</div>
+        <a href="#" class="price-cta">Get Quote</a>
+      </div>
+      <div class="price-card rv">
+        <div class="price-kw">10<sub>kW</sub></div>
+        <div class="price-type">Premium · Farmhouse / Estate</div>
+        <div class="price-amt">₹6,40,000</div>
+        <div class="price-save">Save ~₹7,500/month</div>
+        <a href="#" class="price-cta">Get Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROMISE ══ -->
+<section class="sec promise-sec" id="promise">
+  <div class="sec-in">
+    <div class="promise-grid">
+      <div class="promise-left">
+        <span class="pill pill-w rv">Our Guarantee</span>
+        <h2 class="sh sh-w rv">We're Not a Solar Company.<br><em style="color:var(--cd);">We're Your Protector.</em></h2>
+        <p class="sp sp-w rv">SunLink is a service partner — not an installer. We connect you to verified local vendors and stand behind every single installation with our full protection promise. If something goes wrong, we fix it. Fast.</p>
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:1.2rem 1.5rem;margin-top:.5rem;" class="rv">
+          <p style="font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:.5rem;">⚠️ <strong style="color:var(--cr);">Had a bad experience?</strong> If your vendor fails on quality or speed — file a complaint on SunLink. We resolve it within 48 hours and <strong style="color:var(--cd);">refund your money in full, immediately.</strong></p>
+        </div>
+      </div>
+      <div class="promise-cards rv-r">
+        <div class="pcard"><span class="pcard-icon">✅</span><div><h4>Verified Vendors Only</h4><p>Every vendor is MNRE-certified, background-checked, and customer-rated before we connect them to you.</p></div></div>
+        <div class="pcard"><span class="pcard-icon">⚡</span><div><h4>Speed Guarantee</h4><p>Installation must be completed in the agreed timeline. Delays get escalated immediately — we reassign at no cost to you.</p></div></div>
+        <div class="pcard"><span class="pcard-icon">🏅</span><div><h4>Quality Audit</h4><p>Post-installation technical audit before sign-off. Branded materials verified on site. No shortcuts allowed.</p></div></div>
+        <div class="pcard refund-pcard"><span class="pcard-icon">💰</span><div><h4>Instant Full Refund</h4><p>If a vendor fails to deliver on quality or conduct — you get 100% of your money back within 72 hours. No questions asked.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PAN INDIA ══ -->
+<div class="india-sec">
+  <div class="india-in">
+    <div class="india-text rv-l">
+      <span class="pill" style="margin-bottom:.7rem;display:inline-block;">🇮🇳 Pan India Coverage</span>
+      <h3>We Operate Across<br>Every State in India</h3>
+      <p>Any homeowner, vendor, or solar company — anywhere in India — can join SunLink. We bring local support, regional financing partners, and verified vendors to your doorstep.</p>
+    </div>
+    <div class="state-cloud rv-r">
+      <span class="schip active">Gujarat</span><span class="schip active">Rajasthan</span>
+      <span class="schip active">Maharashtra</span><span class="schip active">Karnataka</span>
+      <span class="schip active">Tamil Nadu</span><span class="schip active">Delhi NCR</span>
+      <span class="schip active">Uttar Pradesh</span><span class="schip">Telangana</span>
+      <span class="schip">Kerala</span><span class="schip">Madhya Pradesh</span>
+      <span class="schip">Punjab</span><span class="schip">Haryana</span>
+      <span class="schip">West Bengal</span><span class="schip">Andhra Pradesh</span>
+      <span class="schip">Odisha</span><span class="schip">Bihar</span>
+      <span class="schip">Chhattisgarh</span><span class="schip">Himachal Pradesh</span>
+      <span class="schip">Jharkhand</span><span class="schip">Uttarakhand</span>
+      <span class="schip">+ 8 more states & UTs</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FINAL CTA ══ -->
+<section class="final-cta">
+  <h2>India's Solar Future<br>Starts <em>Right Here.</em></h2>
+  <p>Join as a homeowner, vendor, or solar company — SunLink has a platform built for you.</p>
+  <div class="cta-row">
+    <a href="#" class="btn-cr">🏠 Get Solar for My Home</a>
+    <a href="#" class="btn-ow">🔧 Register as Vendor</a>
+    <a href="#" class="btn-tr">⚙️ Try SolarCRM</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fb-brand">
+    <div class="logo"><div class="licon">☀️</div><div class="lname fb-brand">Sun<s2>Link</s2></div></div>
+    <p>India's complete solar ecosystem — powering homes, growing vendor businesses, and managing solar companies across 28 states.</p>
+  </div>
+  <div class="fcol">
+    <h5>Platforms</h5>
+    <a href="#">SolarCRM</a><a href="#">Vendor Portal</a><a href="#">Consumer Solar</a>
+  </div>
+  <div class="fcol">
+    <h5>Services</h5>
+    <a href="#">Free Solar Quote</a><a href="#">Bank Loan Help</a>
+    <a href="#">PM Surya Ghar</a><a href="#">File a Complaint</a>
+  </div>
+  <div class="fcol">
+    <h5>Company</h5>
+    <a href="#">About SunLink</a><a href="#">Careers</a>
+    <a href="#">Privacy Policy</a><a href="#">Terms of Use</a>
+  </div>
+</footer>
+<div class="fbot">
+  <span>© 2025 SunLink. All rights reserved.</span>
+  <span>🌱 Powering India's Green Future — One Rooftop at a Time</span>
+</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('up',scrollY>20);
+});
+function tmob(){
+  document.getElementById('mob').classList.toggle('on');
+  document.getElementById('hbg').classList.toggle('x');
+}
+function cmob(){
+  document.getElementById('mob').classList.remove('on');
+  document.getElementById('hbg').classList.remove('x');
+}
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      e.target.style.transitionDelay=(i%6)*.08+'s';
+      e.target.classList.add('on');
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:.08});
+document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
