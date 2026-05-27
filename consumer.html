@@ -39,10 +39,16 @@ nav{
   border-bottom:1px solid var(--border);transition:box-shadow .3s;
 }
 nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
-.logo{display:flex;align-items:center;gap:9px;text-decoration:none;}
-.logo-box{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--green),var(--green-mid));display:flex;align-items:center;justify-content:center;font-size:1rem;}
-.logo-name{font-family:'Fraunces',serif;font-weight:900;font-size:1.2rem;color:var(--green);}
-.logo-name span{color:var(--orange);}
+    .nav-logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo {
+    max-width: 150px;
+    display: block;
+  }
 .nav-links{display:flex;align-items:center;gap:1.8rem;}
 .nav-links a{font-size:.87rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s;}
 .nav-links a:hover{color:var(--green);}
@@ -278,9 +284,9 @@ footer{background:#0a1a10;color:rgba(255,255,255,.5);padding:3.5rem 5vw 0;displa
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="logo">
-    <div class="logo-box">☀️</div>
-    <div class="logo-name">Sun<span>Link</span></div>
+  <div class="nav-logo-wrapper">
+    <img src="Modern Solar Energy Logo - SUNLYNKS (A4).png" alt="Sunlynks Logo" class="nav-logo">
+  </div>
   </a>
   <div class="nav-links">
     <a href="index.html">Home</a>
