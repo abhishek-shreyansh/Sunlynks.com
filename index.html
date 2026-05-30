@@ -279,14 +279,29 @@ nav.up{box-shadow:0 2px 28px rgba(6,95,70,.10);}
 .btn-tr:hover{background:rgba(255,255,255,.1);color:#fff;}
 
 /* ── FOOTER ── */
-footer{background:var(--dk);padding:3.5rem 5vw 0;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;}
-.fb-brand .lname{color:#fff;font-size:1.2rem;}
-.fb-brand p{font-size:.81rem;color:rgba(255,255,255,.45);line-height:1.7;max-width:220px;margin-top:.6rem;}
-.fcol h5{font-size:.76rem;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.9rem;}
-.fcol a{display:block;font-size:.8rem;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:.48rem;transition:color .2s;}
-.fcol a:hover{color:var(--cr);}
-.fbot{background:var(--dk);border-top:1px solid rgba(255,255,255,.05);margin-top:2.5rem;padding:1.2rem 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:.75rem;color:rgba(255,255,255,.25);}
-
+  footer {
+    background: var(--text-dark); color: rgba(255,255,255,0.6);
+    padding: 3rem 5vw 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+  .footer-brand p { font-size: .85rem; line-height: 1.7; max-width: 240px; }
+  .footer-col h4 {
+    font-size: .85rem; font-weight: 700; color: #fff;
+    margin-bottom: .8rem; text-transform: uppercase; letter-spacing: .06em;
+  }
+  .footer-col a {
+    display: block; font-size: .83rem; color: rgba(255,255,255,0.5);
+    text-decoration: none; margin-bottom: .5rem; transition: color .2s;
+  }
+  .footer-col a:hover { color: var(--cream); }
+  .footer-bottom {
+    background: var(--text-dark);
+    padding: 1rem 5vw; text-align: center;
+    font-size: .8rem; color: rgba(255,255,255,0.3);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
 /* ── ANIM ── */
 @keyframes up{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 .rv{opacity:0;transform:translateY(22px);transition:opacity .65s,transform .65s;}
@@ -674,9 +689,9 @@ footer{background:var(--dk);padding:3.5rem 5vw 0;display:grid;grid-template-colu
   </div>
   <div class="footer-col">
     <h4>Support</h4>
-    <a href="info@sunlynks.com">Help Center</a>
-    <a href="info@sunlynks.com">Contact</a>
-    <a href="info@sunlynks.com">Privacy</a>
+    <a href="#">Help Center</a>
+    <a href="#">Contact</a>
+    <a href="#">Privacy</a>
   </div>
 </footer>
 <div class="footer-bottom">© 2026 Sunlynk. All rights reserved. Built for India's solar future 🌱</div>
