@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Do you love me? 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh;
+  background:#fce8ef;
+  font-family:'Nunito',sans-serif;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  position:relative;
+}
+
+/* ── Top banner ── */
+.top-banner{
+  position:fixed;top:0;left:0;right:0;
+  background:#fff;
+  padding:10px 16px;
+  font-size:0.88rem;
+  font-weight:800;
+  color:#222;
+  border-bottom:1px solid #eee;
+  z-index:100;
+  letter-spacing:0.01em;
+}
+
+/* ── Fake browser bar (shown on steps 4,5) ── */
+.browser-bar{
+  position:fixed;top:0;left:0;right:0;
+  background:#f1f3f4;
+  z-index:100;
+  display:none;
+  flex-direction:column;
+}
+.browser-bar.show{display:flex}
+.browser-top{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 10px;background:#e8eaed;
+  border-bottom:1px solid #ccc;
+}
+.b-dot{width:10px;height:10px;border-radius:50%}
+.b-back,.b-fwd{font-size:14px;color:#555;padding:0 4px;cursor:pointer}
+.b-url{
+  flex:1;background:#fff;border:1px solid #ccc;border-radius:12px;
+  padding:3px 10px;font-size:11px;color:#333;font-family:monospace;
+}
+.browser-tabs{
+  display:flex;align-items:flex-end;gap:0;padding:4px 8px 0;overflow:hidden;
+}
+.tab{
+  background:#fff;border:1px solid #ccc;border-bottom:none;
+  padding:4px 12px;font-size:10px;color:#333;border-radius:4px 4px 0 0;
+  white-space:nowrap;max-width:100px;overflow:hidden;text-overflow:ellipsis;
+}
+.tab.active{background:#fce8ef;font-weight:700;color:#e0367a}
+.tab-x{margin-left:4px;font-size:9px;color:#999}
+
+/* ── Bottom ticker ── */
+.bottom-ticker{
+  position:fixed;bottom:0;left:0;right:0;
+  background:#fff;padding:10px 0;
+  font-size:0.95rem;font-weight:700;color:#222;
+  text-align:center;z-index:100;
+  border-top:1px solid #eee;
+  display:none;
+}
+.bottom-ticker.show{display:block}
+
+/* ── Card ── */
+.card{
+  background:#fff;
+  border-radius:24px;
+  padding:36px 32px 32px;
+  width:min(340px,88vw);
+  text-align:center;
+  box-shadow:0 8px 40px rgba(220,60,120,0.13);
+  position:relative;
+  z-index:10;
+  margin-top:0;
+  transition:margin-top 0.3s;
+}
+.card.pushed{margin-top:56px}
+.card.pushed-more{margin-top:76px}
+
+/* step screens */
+.screen{display:none}
+.screen.active{display:block}
+
+/* ── Character images (emoji art) ── */
+.char{font-size:80px;line-height:1;display:block;margin-bottom:12px}
+
+/* ── Title ── */
+.title{
+  font-size:1.25rem;font-weight:900;color:#222;
+  margin-bottom:6px;line-height:1.3;
+}
+.subtitle{
+  font-size:0.82rem;color:#999;font-weight:600;margin-bottom:22px;
+}
+
+/* ── Buttons ── */
+.btn-row{
+  display:flex;gap:10px;justify-content:center;align-items:center;
+  flex-wrap:wrap;position:relative;min-height:44px;
+}
+.btn{
+  border:1.5px solid #ccc;background:#fff;color:#333;
+  border-radius:8px;padding:8px 22px;font-size:0.88rem;
+  font-family:'Nunito',sans-serif;font-weight:700;
+  cursor:pointer;transition:all 0.15s;
+}
+.btn:hover{background:#f5f5f5}
+.btn.yes{border-color:#bbb}
+.btn.no{border-color:#bbb}
+.btn.clickme{border-color:#bbb}
+
+/* Pink action button (step 5) */
+.btn-pink{
+  background:#e8306a;color:#fff;border:none;
+  border-radius:20px;padding:10px 22px;
+  font-size:0.88rem;font-weight:800;font-family:'Nunito',sans-serif;
+  cursor:pointer;box-shadow:0 4px 14px rgba(232,48,106,0.4);
+  transition:all 0.15s;white-space:nowrap;
+}
+.btn-pink:hover{background:#c4215a;transform:scale(1.04)}
+
+/* Flying No button */
+.btn-no-fly{
+  border:1.5px solid #ccc;background:#fff;color:#333;
+  border-radius:8px;padding:8px 18px;font-size:0.82rem;
+  font-family:'Nunito',sans-serif;font-weight:700;
+  cursor:pointer;position:fixed;z-index:200;
+  transition:none;white-space:nowrap;
+}
+
+/* Step 5 layout */
+.step5-inner{
+  display:flex;align-items:flex-start;gap:14px;
+  text-align:left;
+}
+.step5-text{flex:1;font-size:0.82rem;color:#333;line-height:1.7;font-weight:600}
+.step5-text b{color:#e8306a}
+.step5-char{font-size:52px;line-height:1;flex-shrink:0}
+
+/* Watermark */
+.wm{font-size:0.65rem;color:#ccc;margin-top:10px;font-family:monospace}
+
+/* floating hearts */
+.fheart{
+  position:fixed;pointer-events:none;z-index:0;
+  animation:fup linear infinite;opacity:0;font-size:1.2rem;
+}
+@keyframes fup{
+  0%{transform:translateY(100vh);opacity:0}
+  10%{opacity:0.3}90%{opacity:0.3}
+  100%{transform:translateY(-10vh);opacity:0}
+}
+</style>
+</head>
+<body>
+
+<!-- Floating hearts -->
+<div id="fhearts"></div>
+
+  <div class="browser-tabs">
+    <div class="tab active" id="tab1">Will you be my val... <span class="tab-x">×</span></div>
+    <div class="tab" id="tab2" style="display:none">Baby 1 <span class="tab-x">×</span></div>
+  </div>
+</div>
+<!-- Bottom ticker (steps 4-5) -->
+ode 🚀</div>
+
+<!-- Main card -->
+<div class="card" id="card">
+
+  <!-- STEP 1: DO you love me? -->
+  <div class="screen active" id="s1">
+    <span class="char">🐱</span>
+    <div class="title">DO you love me? 🤗</div>
+    <div class="subtitle">~I'm all yours, Main sirf apka hun</div>
+    <div class="btn-row">
+      <button class="btn yes" onclick="goStep(2)">Yes</button>
+      <button class="btn no" onclick="goStep(2,'no')">No</button>
+    </div>
+  </div>
+
+  <!-- STEP 2: Please think again -->
+  <div class="screen" id="s2">
+    <span class="char">🐼</span>
+    <div class="title">Please think again! 🤔</div>
+    <div class="subtitle">itni jaldi nahi matt bolo 😊</div>
+    <div class="btn-row">
+      <button class="btn yes" onclick="goStep(3,'yes')">Yes</button>
+      <button class="btn no" onclick="goStep(3,'no')">No</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Ek aur baar Soch lo -->
+  <div class="screen" id="s3">
+    <span class="char">👻</span>
+    <div class="title">Ek aur baar Soch lo! 😝</div>
+    <div class="subtitle">kyu aisa kar rahi ho 😊</div>
+    <div class="btn-row">
+      <button class="btn yes" onclick="goStep(4,'yes')">Yes</button>
+      <button class="btn no" onclick="goStep(4,'no')">No</button>
+    </div>
+  </div>
+
+  <!-- STEP 4: Baby Man jao na -->
+  <div class="screen" id="s4">
+    <span class="char">🐱🤍</span>
+    <div class="title">Baby Man jao na! Kitna bhav khaogi 😭</div>
+    <div class="subtitle">bhut glt baat hai yaar😊</div>
+    <div class="btn-row" id="s4btns">
+      <button class="btn yes" onclick="goStep(5,'yes')">Yes</button>
+      <button class="btn no" id="s4no" onclick="activateFlyingNo()">No</button>
+      <button class="btn clickme" onclick="goStep(5,'yes')">Click Me</button>
+    </div>
+  </div>
+
+  <!-- STEP 5: Sorry page -->
+  <div class="screen" id="s5">
+    <div class="step5-inner">
+      <span class="step5-char">😿</span>
+      <div class="step5-text">
+        Sorry baby tumhe pareshaan kiya,<br>
+        Please gussa mat karo......!<br>
+        I'll never multithread on you❤<br>
+        I'm sorry &amp; I would wait for you❤ ......
+      </div>
+      <button class="btn-pink" onclick="goOkay()">It's Okay 💕</button>
+    </div>
+  </div>
+
+  <!-- STEP 6: Final YES screen -->
+  <div class="screen" id="s6">
+    <span class="char" style="font-size:90px">🥰</span>
+    <div class="title" style="font-size:1.4rem;color:#e8306a">Achi Bachiii 🐾 ♥ ♥ ♥ ♥ ♥</div>
+  </div>
+
+</div>
+
+<!-- Flying No button (appears in step 4+) -->
+<button class="btn-no-fly" id="flyNo" style="display:none" onclick="bumpFlyNo()">No</button>
+
+<script>
+// ── Floating hearts ──
+const fh = document.getElementById('fhearts');
+const hs = ['💗','💕','💖','💘','🌸','💝','✨'];
+for(let i=0;i<18;i++){
+  const e=document.createElement('span');
+  e.className='fheart';
+  e.textContent=hs[i%hs.length];
+  e.style.left=Math.random()*100+'vw';
+  e.style.animationDuration=(8+Math.random()*10)+'s';
+  e.style.animationDelay='-'+(Math.random()*16)+'s';
+  e.style.fontSize=(0.9+Math.random()*1.1)+'rem';
+  fh.appendChild(e);
+}
+
+let currentStep=1;
+let flyingActive=false;
+
+const card=document.getElementById('card');
+const topBanner=document.getElementById('topBanner');
+const browserBar=document.getElementById('browserBar');
+const bottomTicker=document.getElementById('bottomTicker');
+const flyNo=document.getElementById('flyNo');
+
+function showStep(n){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+}
+
+function goStep(n, which){
+  currentStep=n;
+
+  // Chrome browser bar appears from step 4 onward
+  if(n>=4){
+    topBanner.style.display='none';
+    browserBar.classList.add('show');
+    bottomTicker.classList.add('show');
+    card.classList.add('pushed-more');
+    if(n===4){
+      document.getElementById('bUrl').textContent='127.0.0.1:5500/index.html';
+      document.getElementById('tab1').textContent='Will you be my val... ×';
+      document.getElementById('tab2').style.display='none';
+    }
+    if(n===5||n===6){
+      document.getElementById('bUrl').textContent='127.0.0.1:5500/sorry_baby.html';
+      document.getElementById('tab1').textContent='Will you be my val... ×';
+      document.getElementById('tab2').style.display='flex';
+      document.getElementById('tab2').textContent='Sorry baby 1 ×';
+      document.getElementById('tab2').classList.add('active');
+      document.getElementById('tab1').classList.remove('active');
+    }
+  } else {
+    card.classList.add('pushed');
+  }
+
+  showStep(n);
+}
+
+// Step 4: activate flying No button
+function activateFlyingNo(){
+  if(flyingActive) return;
+  flyingActive=true;
+  // Hide the static No in step4
+  document.getElementById('s4no').style.visibility='hidden';
+  flyNo.style.display='block';
+  placeFlyNo();
+}
+
+function placeFlyNo(){
+  const margin=16;
+  const w=flyNo.offsetWidth||60;
+  const h=flyNo.offsetHeight||38;
+  const maxX=window.innerWidth-w-margin;
+  const maxY=window.innerHeight-h-margin;
+  flyNo.style.left=(margin+Math.random()*maxX)+'px';
+  flyNo.style.top=(margin+Math.random()*maxY)+'px';
+}
+
+function bumpFlyNo(){
+  placeFlyNo();
+}
+
+// Mouse dodge for flying No
+document.addEventListener('mousemove',e=>{
+  if(!flyingActive||flyNo.style.display==='none') return;
+  const r=flyNo.getBoundingClientRect();
+  const cx=r.left+r.width/2, cy=r.top+r.height/2;
+  if(Math.hypot(e.clientX-cx,e.clientY-cy)<110) placeFlyNo();
+});
+
+document.addEventListener('touchmove',e=>{
+  if(!flyingActive||flyNo.style.display==='none') return;
+  const t=e.touches[0];
+  const r=flyNo.getBoundingClientRect();
+  const cx=r.left+r.width/2, cy=r.top+r.height/2;
+  if(Math.hypot(t.clientX-cx,t.clientY-cy)<100) placeFlyNo();
+},{passive:true});
+
+function goOkay(){
+  goStep(6,'yes');
+  flyNo.style.display='none';
+  flyingActive=false;
+  launchConfetti();
+}
+
+function launchConfetti(){
+  for(let i=0;i<28;i++){
+    setTimeout(()=>{
+      const e=document.createElement('span');
+      e.style.cssText=`position:fixed;left:${Math.random()*100}vw;top:-2rem;
+        font-size:${1+Math.random()}rem;pointer-events:none;z-index:999;
+        animation:fup ${2+Math.random()*3}s linear forwards;`;
+      e.textContent=hs[Math.floor(Math.random()*hs.length)];
+      document.body.appendChild(e);
+      setTimeout(()=>e.remove(),6000);
+    },i*90);
+  }
+}
+
+// Init
+showStep(1);
+card.classList.add('pushed');
+</script>
+</body>
+</html>
