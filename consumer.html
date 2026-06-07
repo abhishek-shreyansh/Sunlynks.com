@@ -18,6 +18,7 @@
   --cream-dark: #fde68a;
   --white: #fffdf7;
   --text: #0f2117;
+  --text-dark: #1a2e1a;
   --muted: #4a6741;
   --border: rgba(6,95,70,0.11);
   --shadow: 0 10px 50px rgba(6,95,70,0.13);
@@ -251,15 +252,29 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
 .btn-cream:hover{background:#fff;transform:translateY(-2px);}
 
 /* ── FOOTER ── */
-footer{background:#0a1a10;color:rgba(255,255,255,.5);padding:3.5rem 5vw 0;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;}
-.fb .logo-name{color:#fff;}
-.fb .logo-name span{color:var(--orange);}
-.fb p{font-size:.82rem;line-height:1.7;max-width:230px;margin-top:.6rem;}
-.fcol h5{font-size:.78rem;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.9rem;}
-.fcol a{display:block;font-size:.81rem;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:.5rem;transition:color .2s;}
-.fcol a:hover{color:var(--cream);}
-.fbot{background:#0a1a10;border-top:1px solid rgba(255,255,255,.06);padding:1.2rem 5vw;margin-top:2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:.77rem;color:rgba(255,255,255,.28);}
-
+  footer {
+    background: var(--text-dark); color: rgba(255,255,255,0.6);
+    padding: 3rem 5vw 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+  .footer-brand p { font-size: .85rem; line-height: 1.7; max-width: 240px; }
+  .footer-col h4 {
+    font-size: .85rem; font-weight: 700; color: #fff;
+    margin-bottom: .8rem; text-transform: uppercase; letter-spacing: .06em;
+  }
+  .footer-col a {
+    display: block; font-size: .83rem; color: rgba(255,255,255,0.5);
+    text-decoration: none; margin-bottom: .5rem; transition: color .2s;
+  }
+  .footer-col a:hover { color: var(--cream); }
+  .footer-bottom {
+    background: var(--text-dark);
+    padding: 1rem 5vw; text-align: center;
+    font-size: .8rem; color: rgba(255,255,255,0.3);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
 /* ── ANIM ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s,transform .65s;}
@@ -708,40 +723,30 @@ footer{background:#0a1a10;color:rgba(255,255,255,.5);padding:3.5rem 5vw 0;displa
 
 <!-- FOOTER -->
 <footer>
-  <div class="fb">
-    <div class="logo">
-      <div class="logo-box">☀️</div>
-      <div class="logo-name">Sun<span>Lynks</span></div>
-    </div>
-    <p>India's trusted solar service platform. We connect homeowners with verified local vendors — quality, speed, and full protection guaranteed.</p>
+  <div class="footer-brand">
+    <img src="Modern Solar Energy Logo - SUNLYNKS (A4).png" alt="Sunlynks Logo" class="nav-logo">
+    <p>Your Solar Partner..</p>
   </div>
-  <div class="fcol">
-    <h5>Solar Systems</h5>
-    <a href="#">3 kW Package</a>
-    <a href="#">5 kW Package</a>
-    <a href="#">8 kW Package</a>
-    <a href="#">10 kW Package</a>
+  <div class="footer-col">
+    <h4>Product</h4>
+    <a href="#">SunlynksCRM</a>
+    <a href="#">Solar Kit</a>
+    <a href="#">Others</a>
   </div>
-  <div class="fcol">
-    <h5>Services</h5>
-    <a href="#">Free Site Survey</a>
-    <a href="#">Bank Loan Help</a>
-    <a href="#">PM Surya Ghar</a>
-    <a href="#">File a Complaint</a>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <a href="#">About</a>
+    <a href="#">Blog</a>
+    <a href="#">Careers</a>
   </div>
-  <div class="fcol">
-    <h5>Company</h5>
-    <a href="#">About SunLynks</a>
-    <a href="#">Vendor Portal</a>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms of Use</a>
+  <div class="footer-col">
+    <h4>Support</h4>
+    <a href="#">Help Center</a>
+    <a href="#">Contact</a>
+    <a href="#">Privacy</a>
   </div>
 </footer>
-<div class="fbot">
-  <span>© 2026 Sunlynks. All rights reserved. A SunlynksCRM Initiative.</span>
-  <span>🌱 Powering India's Green Future — One Rooftop at a Time</span>
-</div>
-
+<div class="footer-bottom">© 2026 Sunlynk. All rights reserved. Built for India's solar future 🌱</div>
 <script>
   window.addEventListener('scroll',()=>{
     document.getElementById('nav').classList.toggle('scrolled',scrollY>20);
