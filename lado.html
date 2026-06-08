@@ -201,7 +201,7 @@ body{
     <div class="title">DO you love me? 🤗</div>
     <div class="subtitle">~I'm all yours, Main sirf apka hun</div>
     <div class="btn-row">
-      <button class="btn yes" onclick="goStep(2)">Yes</button>
+      <button class="btn yes" onclick="goFinalYes()">Yes</button>
       <button class="btn no" onclick="goStep(2,'no')">No</button>
     </div>
     <div class="wm"></div>
@@ -213,7 +213,7 @@ body{
     <div class="title">Please think again! 🤔</div>
     <div class="subtitle">itni jaldi nahi matt boliye 😊</div>
     <div class="btn-row">
-      <button class="btn yes" onclick="goStep(3,'yes')">Yes</button>
+      <button class="btn yes" onclick="goFinalYes()">Yes</button>
       <button class="btn no" onclick="goStep(3,'no')">No</button>
     </div>
     <div class="wm"></div>
@@ -225,7 +225,7 @@ body{
     <div class="title">Ek aur baar Soch ligiye! 😝</div>
     <div class="subtitle">kyu aisa kar rahe h 😊</div>
     <div class="btn-row">
-      <button class="btn yes" onclick="goStep(4,'yes')">Yes</button>
+      <button class="btn yes" onclick="goFinalYes()">Yes</button>
       <button class="btn no" onclick="goStep(4,'no')">No</button>
     </div>
     <div class="wm"></div>
@@ -237,7 +237,7 @@ body{
     <div class="title">lado Man jao na! Kitna bhav khaogi 😭</div>
     <div class="subtitle">bhut glt baat hai 😊</div>
     <div class="btn-row" id="s4btns">
-      <button class="btn yes" onclick="goStep(5,'yes')">Yes</button>
+      <button class="btn yes" onclick="goFinalYes()">Yes</button>
       <button class="btn no" id="s4no" onclick="activateFlyingNo()">No</button>
       <button class="btn clickme" onclick="goStep(5,'yes')">Click Me</button>
     </div>
@@ -389,6 +389,12 @@ function launchConfetti(){
       setTimeout(()=>e.remove(),6000);
     },i*90);
   }
+}
+  function goFinalYes(){
+  flyNo.style.display='none';
+  flyingActive=false;
+  goStep(6,'yes');
+  launchConfetti();
 }
 
 // Init
