@@ -523,18 +523,6 @@ footer{background:var(--text-dark);color:rgba(255,255,255,0.6);padding:3rem 5vw 
             <textarea id="e-notes" placeholder="e.g. flat rooftop, need battery backup, 3-phase connection..."></textarea>
           </div>
 
-          <!-- BIJLI BILL UPLOAD -->
-          <div class="fg">
-            <label>📄 Attach Bijli Bill (Electricity Bill)</label>
-            <div class="file-upload-area" onclick="document.getElementById('e-bill').click()">
-              <input type="file" id="e-bill" accept=".pdf,.jpg,.jpeg,.png" style="display:none" onchange="showFileName(this)">
-              <div class="fup-icon">⚡</div>
-              <p>Click to upload your electricity bill</p>
-              <span>PDF, JPG or PNG · Max 5MB · Helps us give accurate quote</span>
-              <div id="file-name"></div>
-            </div>
-          </div>
-
           <button class="submit-btn" id="submit-btn" onclick="submitEnquiry()">🌞 Submit &amp; Get Free Quote</button>
           <p class="form-note">By submitting you agree to our <a href="#">Terms</a>. We will never spam you or sell your data.</p>
         </div>
