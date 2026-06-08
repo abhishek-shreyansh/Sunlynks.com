@@ -32,24 +32,10 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 ::-webkit-scrollbar-track{background:var(--cream);}
 ::-webkit-scrollbar-thumb{background:var(--green);border-radius:5px;}
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
-  display:flex;align-items:center;justify-content:space-between;padding:0 5vw;
-  background:rgba(255,253,247,0.93);backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--border);transition:box-shadow .3s;
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(255,253,247,0.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);transition:box-shadow .3s;}
 nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
-    .nav-logo-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .nav-logo {
-    max-width: 150px;
-    display: block;
-  }
+.nav-logo-wrapper{display:flex;align-items:center;gap:10px;}
+.nav-logo{max-width:150px;display:block;}
 .nav-links{display:flex;align-items:center;gap:1.8rem;}
 .nav-links a{font-size:.87rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s;}
 .nav-links a:hover{color:var(--green);}
@@ -62,16 +48,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
 .mob-menu a{font-size:1.05rem;font-weight:600;color:var(--muted);text-decoration:none;}
 .mob-menu .nav-cta{align-self:flex-start;}
 
-/* ── HERO ── */
-.hero{
-  min-height:100vh;padding:100px 5vw 70px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;position:relative;overflow:hidden;
-  background:
-    radial-gradient(ellipse 70% 55% at 50% -5%, rgba(6,95,70,0.10) 0%,transparent 65%),
-    radial-gradient(ellipse 50% 40% at 90% 80%, rgba(234,88,12,0.08) 0%,transparent 60%),
-    var(--white);
-}
+.hero{min-height:100vh;padding:100px 5vw 70px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse 70% 55% at 50% -5%, rgba(6,95,70,0.10) 0%,transparent 65%),radial-gradient(ellipse 50% 40% at 90% 80%, rgba(234,88,12,0.08) 0%,transparent 60%),var(--white);}
 .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:440px;height:440px;background:radial-gradient(circle,var(--orange-glow) 0%,transparent 70%);opacity:.35;pointer-events:none;}
 .hero::after{content:'';position:absolute;bottom:-80px;left:-60px;width:380px;height:380px;background:radial-gradient(circle,var(--green-light) 0%,transparent 70%);opacity:.55;pointer-events:none;}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--cream);border:1px solid var(--cream-dark);color:var(--orange);font-size:.79rem;font-weight:700;padding:.33rem 1rem;border-radius:50px;margin-bottom:1.6rem;animation:fadeUp .5s ease both;}
@@ -88,28 +65,19 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
 .stat-n{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;color:var(--orange);}
 .stat-l{font-size:.78rem;color:var(--muted);margin-top:.15rem;}
 
-/* ── TRUST BANNER ── */
 .trust-banner{background:var(--green);padding:1rem 5vw;display:flex;align-items:center;justify-content:center;gap:.6rem;flex-wrap:wrap;}
 .trust-banner p{color:rgba(255,255,255,.85);font-size:.88rem;text-align:center;}
 .trust-banner strong{color:var(--cream);}
-.trust-chips{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;}
-.tchip{background:rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:.75rem;padding:.25rem .75rem;border-radius:50px;border:1px solid rgba(255,255,255,.18);}
 
-/* ── SECTION BASE ── */
 .sec{padding:88px 5vw;}
 .sec-in{max-width:1140px;margin:0 auto;}
 .badge-pill{display:inline-block;background:var(--cream);color:var(--orange);font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.3rem 1rem;border-radius:50px;margin-bottom:.9rem;}
 .sec-h{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--green);line-height:1.12;margin-bottom:.9rem;}
 .sec-p{font-size:1rem;color:var(--muted);line-height:1.75;max-width:540px;margin-bottom:3rem;}
 
-/* ── PACKAGES ── */
 .packages-sec{background:var(--cream);}
 .pkg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.4rem;}
-.pkg-card{
-  background:var(--white);border-radius:var(--r);padding:1.8rem;
-  border:2px solid transparent;transition:all .3s;position:relative;overflow:hidden;
-  cursor:pointer;
-}
+.pkg-card{background:var(--white);border-radius:var(--r);padding:1.8rem;border:2px solid transparent;transition:all .3s;position:relative;overflow:hidden;cursor:pointer;}
 .pkg-card.popular{border-color:var(--orange);}
 .popular-tag{position:absolute;top:14px;right:14px;background:var(--orange);color:#fff;font-size:.7rem;font-weight:800;padding:.2rem .7rem;border-radius:50px;letter-spacing:.04em;}
 .pkg-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--green);}
@@ -128,7 +96,6 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
 .pkg-card.popular .pkg-btn{background:var(--orange);}
 .pkg-btn:hover{opacity:.88;transform:translateY(-1px);}
 
-/* ── SPECS ── */
 .specs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.4rem;}
 .spec-card{background:var(--white);border-radius:var(--r);padding:1.8rem;border:1.5px solid var(--border);transition:all .25s;}
 .spec-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm);}
@@ -138,7 +105,6 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
 .brand-chip{background:var(--cream);color:var(--orange);font-size:.75rem;font-weight:700;padding:.25rem .7rem;border-radius:50px;border:1px solid var(--cream-dark);}
 .spec-desc{font-size:.83rem;color:var(--muted);line-height:1.6;}
 
-/* ── SPECS DARK ── */
 .specs-dark{background:var(--green);}
 .specs-dark .badge-pill{background:rgba(254,243,199,.15);color:var(--cream-dark);}
 .specs-dark .sec-h{color:#fff;}
@@ -149,10 +115,8 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
 .specs-dark .brand-chip{background:rgba(254,243,199,.15);color:var(--cream-dark);border-color:rgba(255,255,255,.2);}
 .specs-dark .spec-desc{color:rgba(255,255,255,.6);}
 
-/* ── TRUST / SERVICE PROMISE ── */
 .promise-sec{background:linear-gradient(135deg,var(--cream) 0%,#fff8e7 100%);}
 .promise-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center;}
-.promise-left{}
 .promise-badge-row{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:1.5rem;}
 .pbadge{display:flex;align-items:center;gap:.5rem;background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:.5rem .9rem;font-size:.8rem;font-weight:700;color:var(--green);}
 .pbadge .pi{font-size:1rem;}
@@ -161,7 +125,6 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
 .pp-icon{width:34px;height:34px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;}
 .pp-green{background:var(--green-xlight);}
 .pp-orange{background:#fff7ed;}
-.promise-right{}
 .promise-cards{}
 .pc{background:var(--white);border-radius:18px;padding:1.4rem;border:1.5px solid var(--border);margin-bottom:1rem;transition:transform .2s;}
 .pc:hover{transform:translateX(5px);}
@@ -173,13 +136,11 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
 .refund-card .pc-top h4{color:var(--cream);}
 .refund-card p{color:rgba(255,255,255,.7);}
 
-/* ── COMPLAINT ── */
 .complaint-strip{background:var(--orange);padding:1.2rem 5vw;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;text-align:center;}
 .complaint-strip p{color:#fff;font-size:.9rem;font-weight:500;}
 .complaint-strip strong{font-weight:800;}
 .complaint-btn{background:#fff;color:var(--orange);padding:.45rem 1.3rem;border-radius:50px;font-size:.82rem;font-weight:800;text-decoration:none;white-space:nowrap;}
 
-/* ── ENQUIRY FORM ── */
 .form-sec{background:var(--white);}
 .form-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start;}
 .form-left h2{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:900;color:var(--green);line-height:1.15;margin-bottom:1rem;}
@@ -200,42 +161,31 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
 .fg textarea{resize:vertical;min-height:80px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
 
-/* FILE UPLOAD */
-.file-upload-area{
-  border:2px dashed rgba(6,95,70,.25);border-radius:14px;
-  padding:1.3rem;text-align:center;cursor:pointer;
-  transition:all .2s;background:var(--green-xlight);
-  position:relative;
-}
+.file-upload-area{border:2px dashed rgba(6,95,70,.25);border-radius:14px;padding:1.3rem;text-align:center;cursor:pointer;transition:all .2s;background:var(--green-xlight);position:relative;}
 .file-upload-area:hover{border-color:var(--green);background:#e8f9f2;}
-.file-upload-area input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
 .file-upload-area .fup-icon{font-size:1.6rem;margin-bottom:.4rem;}
 .file-upload-area p{font-size:.82rem;color:var(--green);font-weight:600;}
 .file-upload-area span{font-size:.75rem;color:var(--muted);}
 #file-name{font-size:.78rem;color:var(--orange);font-weight:700;margin-top:.4rem;}
 
-.submit-btn{
-  width:100%;padding:.95rem;border-radius:14px;
-  background:linear-gradient(135deg,var(--green),var(--green-mid));
-  color:#fff;font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:1rem;font-weight:800;border:none;cursor:pointer;
-  transition:opacity .2s,transform .15s;
-  box-shadow:0 4px 20px rgba(6,95,70,.22);
-  margin-top:.4rem;
-}
-.submit-btn:hover{opacity:.9;transform:translateY(-1px);}
+/* Error box */
+.form-error{background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:.7rem 1rem;font-size:.83rem;color:#dc2626;margin-bottom:.8rem;display:none;}
+.form-error.show{display:block;}
+
+.submit-btn{width:100%;padding:.95rem;border-radius:14px;background:linear-gradient(135deg,var(--green),var(--green-mid));color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:800;border:none;cursor:pointer;transition:opacity .2s,transform .15s;box-shadow:0 4px 20px rgba(6,95,70,.22);margin-top:.4rem;position:relative;}
+.submit-btn:hover:not(:disabled){opacity:.9;transform:translateY(-1px);}
+.submit-btn:disabled{opacity:.7;cursor:not-allowed;transform:none;}
+.btn-spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:.5rem;}
+@keyframes spin{to{transform:rotate(360deg);}}
 .form-note{text-align:center;font-size:.76rem;color:var(--muted);margin-top:.7rem;}
 .form-note a{color:var(--orange);text-decoration:none;}
 
-#form-success{
-  display:none;text-align:center;padding:2rem 0;
-}
+#form-success{display:none;text-align:center;padding:2rem 0;}
 #form-success .si{font-size:3rem;margin-bottom:.7rem;}
 #form-success h4{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--green);margin-bottom:.4rem;}
 #form-success p{font-size:.87rem;color:var(--muted);line-height:1.65;}
 #form-success .tag{margin-top:1.2rem;background:var(--green-xlight);border-radius:12px;padding:.9rem;font-size:.82rem;color:var(--green);font-weight:700;}
 
-/* ── HOW IT WORKS ── */
 .hiw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.3rem;}
 .hiw-card{text-align:center;padding:1.8rem 1.2rem;border-radius:var(--r);border:1.5px solid var(--border);background:var(--white);transition:all .25s;}
 .hiw-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-3px);}
@@ -243,7 +193,6 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
 .hiw-card h4{font-family:'Fraunces',serif;font-size:.98rem;font-weight:800;color:var(--green);margin-bottom:.45rem;}
 .hiw-card p{font-size:.83rem;color:var(--muted);line-height:1.6;}
 
-/* ── CTA ── */
 .cta{background:linear-gradient(135deg,var(--green) 0%,var(--green-mid) 100%);padding:72px 5vw;text-align:center;position:relative;overflow:hidden;}
 .cta::before{content:'';position:absolute;top:-100px;right:-100px;width:420px;height:420px;background:radial-gradient(circle,rgba(234,88,12,.18) 0%,transparent 65%);pointer-events:none;}
 .cta h2{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;margin-bottom:1rem;}
@@ -251,36 +200,17 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
 .btn-cream{background:var(--cream);color:var(--green);padding:.9rem 2.4rem;border-radius:50px;font-size:1rem;font-weight:800;text-decoration:none;transition:all .2s;display:inline-block;}
 .btn-cream:hover{background:#fff;transform:translateY(-2px);}
 
-/* ── FOOTER ── */
-  footer {
-    background: var(--text-dark); color: rgba(255,255,255,0.6);
-    padding: 3rem 5vw 2rem;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 2rem;
-  }
-  .footer-brand p { font-size: .85rem; line-height: 1.7; max-width: 240px; }
-  .footer-col h4 {
-    font-size: .85rem; font-weight: 700; color: #fff;
-    margin-bottom: .8rem; text-transform: uppercase; letter-spacing: .06em;
-  }
-  .footer-col a {
-    display: block; font-size: .83rem; color: rgba(255,255,255,0.5);
-    text-decoration: none; margin-bottom: .5rem; transition: color .2s;
-  }
-  .footer-col a:hover { color: var(--cream); }
-  .footer-bottom {
-    background: var(--text-dark);
-    padding: 1rem 5vw; text-align: center;
-    font-size: .8rem; color: rgba(255,255,255,0.3);
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-/* ── ANIM ── */
+footer{background:var(--text-dark);color:rgba(255,255,255,0.6);padding:3rem 5vw 2rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;}
+.footer-brand p{font-size:.85rem;line-height:1.7;max-width:240px;}
+.footer-col h4{font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.8rem;text-transform:uppercase;letter-spacing:.06em;}
+.footer-col a{display:block;font-size:.83rem;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:.5rem;transition:color .2s;}
+.footer-col a:hover{color:var(--cream);}
+.footer-bottom{background:var(--text-dark);padding:1rem 5vw;text-align:center;font-size:.8rem;color:rgba(255,255,255,0.3);border-top:1px solid rgba(255,255,255,0.06);}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s,transform .65s;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
-/* ── RESPONSIVE ── */
 @media(max-width:960px){
   .nav-links a:not(.nav-cta){display:none;}
   .nav-cta{display:none;}
@@ -302,7 +232,6 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
   <div class="nav-logo-wrapper">
     <img src="Modern Solar Energy Logo - SUNLYNKS (A4).png" alt="Sunlynks Logo" class="nav-logo">
   </div>
-  </a>
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="consumer.html">Consumer</a>
@@ -327,7 +256,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
   <p class="hero-sub">Sunlynks connects you with trusted, verified local solar vendors across India. Quality installation, bank financing support, and a 100% money-back guarantee if anything goes wrong.</p>
   <div class="hero-actions">
     <a href="#enquiry" class="btn-green">Get Free Quote →</a>
-    <a href="#packages" class="btn-outline">See Packages & Prices</a>
+    <a href="#packages" class="btn-outline">See Packages &amp; Prices</a>
   </div>
   <div class="hero-stats">
     <div class="stat-box"><div class="stat-n">₹0</div><div class="stat-l">Consultation Fee</div></div>
@@ -349,31 +278,11 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
     <h2 class="sec-h reveal">Solar in 5 Simple Steps</h2>
     <p class="sec-p reveal">From your first enquiry to the day your meter runs backwards — we're with you at every step.</p>
     <div class="hiw-grid">
-      <div class="hiw-card reveal">
-        <div class="hiw-num">1</div>
-        <h4>Fill Enquiry Form</h4>
-        <p>Share your name, location, sanctioned load, and preferred system size. Takes 2 minutes.</p>
-      </div>
-      <div class="hiw-card reveal">
-        <div class="hiw-num">2</div>
-        <h4>Free Site Survey</h4>
-        <p>Our verified local vendor visits your home, checks your roof and electricity bill, and gives an exact quote.</p>
-      </div>
-      <div class="hiw-card reveal">
-        <div class="hiw-num">3</div>
-        <h4>Bank Loan Support</h4>
-        <p>We help you get solar financing from leading banks — 0% processing hassle, full documentation support.</p>
-      </div>
-      <div class="hiw-card reveal">
-        <div class="hiw-num">4</div>
-        <h4>Quality Installation</h4>
-        <p>Branded panels, certified inverters, hot-dip GI structure — installed fast and right the first time.</p>
-      </div>
-      <div class="hiw-card reveal">
-        <div class="hiw-num">5</div>
-        <h4>Net Metering & Go Live</h4>
-        <p>We handle all DISCOM paperwork, net metering setup, and commission your system — you just enjoy savings.</p>
-      </div>
+      <div class="hiw-card reveal"><div class="hiw-num">1</div><h4>Fill Enquiry Form</h4><p>Share your name, location, sanctioned load, and preferred system size. Takes 2 minutes.</p></div>
+      <div class="hiw-card reveal"><div class="hiw-num">2</div><h4>Free Site Survey</h4><p>Our verified local vendor visits your home, checks your roof and electricity bill, and gives an exact quote.</p></div>
+      <div class="hiw-card reveal"><div class="hiw-num">3</div><h4>Bank Loan Support</h4><p>We help you get solar financing from leading banks — 0% processing hassle, full documentation support.</p></div>
+      <div class="hiw-card reveal"><div class="hiw-num">4</div><h4>Quality Installation</h4><p>Branded panels, certified inverters, hot-dip GI structure — installed fast and right the first time.</p></div>
+      <div class="hiw-card reveal"><div class="hiw-num">5</div><h4>Net Metering &amp; Go Live</h4><p>We handle all DISCOM paperwork, net metering setup, and commission your system — you just enjoy savings.</p></div>
     </div>
   </div>
 </section>
@@ -381,30 +290,23 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
 <!-- PACKAGES -->
 <section class="sec packages-sec" id="packages">
   <div class="sec-in">
-    <span class="badge-pill reveal">Pricing & Packages</span>
+    <span class="badge-pill reveal">Pricing &amp; Packages</span>
     <h2 class="sec-h reveal">Choose Your Solar System Size</h2>
-    <p class="sec-p reveal">All prices are approximate all-inclusive estimates. Final price depends on your roof type and location. GST & subsidy benefits applicable.</p>
+    <p class="sec-p reveal">All prices are approximate all-inclusive estimates. Final price depends on your roof type and location. GST &amp; subsidy benefits applicable.</p>
     <div class="pkg-grid">
-
-      <!-- 3 kW -->
       <div class="pkg-card reveal">
         <div class="pkg-kw">3 <span>kW</span></div>
         <div class="pkg-label">Residential · Small Home</div>
         <div class="pkg-price"><sub>approx. </sub>₹2,30,000</div>
         <div class="pkg-savings">💡 Save ~₹2,200/month on electricity bill</div>
         <ul class="pkg-features">
-          <li>Ideal for 2–3 BHK homes</li>
-          <li>Sanctioned load: up to 5 kW</li>
-          <li>~12–14 units/day generation</li>
-          <li>3 high-efficiency solar panels</li>
-          <li>1 branded string inverter</li>
-          <li>Hot-dip GI mounting structure</li>
+          <li>Ideal for 2–3 BHK homes</li><li>Sanctioned load: up to 5 kW</li>
+          <li>~12–14 units/day generation</li><li>3 high-efficiency solar panels</li>
+          <li>1 branded string inverter</li><li>Hot-dip GI mounting structure</li>
           <li>5-year installation warranty</li>
         </ul>
         <a href="#enquiry" class="pkg-btn">Get Quote for 3 kW →</a>
       </div>
-
-      <!-- 5 kW POPULAR -->
       <div class="pkg-card popular reveal">
         <span class="popular-tag">⭐ Most Popular</span>
         <div class="pkg-kw">5 <span>kW</span></div>
@@ -412,56 +314,40 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
         <div class="pkg-price"><sub>approx. </sub>₹3,40,000</div>
         <div class="pkg-savings">💡 Save ~₹3,800/month on electricity bill</div>
         <ul class="pkg-features">
-          <li>Ideal for 3–4 BHK homes</li>
-          <li>Sanctioned load: up to 7 kW</li>
-          <li>~20–22 units/day generation</li>
-          <li>5 high-efficiency solar panels</li>
-          <li>1 premium hybrid inverter</li>
-          <li>Hot-dip GI mounting structure</li>
+          <li>Ideal for 3–4 BHK homes</li><li>Sanctioned load: up to 7 kW</li>
+          <li>~20–22 units/day generation</li><li>5 high-efficiency solar panels</li>
+          <li>1 premium hybrid inverter</li><li>Hot-dip GI mounting structure</li>
           <li>5-year installation warranty</li>
         </ul>
         <a href="#enquiry" class="pkg-btn">Get Quote for 5 kW →</a>
       </div>
-
-      <!-- 8 kW -->
       <div class="pkg-card reveal">
         <div class="pkg-kw">8 <span>kW</span></div>
         <div class="pkg-label">Residential · Large Home</div>
         <div class="pkg-price"><sub>approx. </sub>₹5,20,000</div>
         <div class="pkg-savings">💡 Save ~₹5,800/month on electricity bill</div>
         <ul class="pkg-features">
-          <li>Ideal for large bungalows / villas</li>
-          <li>Sanctioned load: up to 10 kW</li>
-          <li>~32–35 units/day generation</li>
-          <li>8 high-efficiency solar panels</li>
-          <li>1 premium 3-phase inverter</li>
-          <li>Heavy-duty GI mounting structure</li>
+          <li>Ideal for large bungalows / villas</li><li>Sanctioned load: up to 10 kW</li>
+          <li>~32–35 units/day generation</li><li>8 high-efficiency solar panels</li>
+          <li>1 premium 3-phase inverter</li><li>Heavy-duty GI mounting structure</li>
           <li>5-year installation warranty</li>
         </ul>
         <a href="#enquiry" class="pkg-btn">Get Quote for 8 kW →</a>
       </div>
-
-      <!-- 10 kW -->
       <div class="pkg-card reveal">
         <div class="pkg-kw">10 <span>kW</span></div>
         <div class="pkg-label">Residential · Premium / Farm</div>
         <div class="pkg-price"><sub>approx. </sub>₹6,40,000</div>
         <div class="pkg-savings">💡 Save ~₹7,500/month on electricity bill</div>
         <ul class="pkg-features">
-          <li>Ideal for farmhouses / big estates</li>
-          <li>Sanctioned load: up to 15 kW</li>
-          <li>~40–44 units/day generation</li>
-          <li>10 high-efficiency solar panels</li>
-          <li>1 premium 3-phase inverter</li>
-          <li>Industrial-grade GI structure</li>
+          <li>Ideal for farmhouses / big estates</li><li>Sanctioned load: up to 15 kW</li>
+          <li>~40–44 units/day generation</li><li>10 high-efficiency solar panels</li>
+          <li>1 premium 3-phase inverter</li><li>Industrial-grade GI structure</li>
           <li>5-year installation warranty</li>
         </ul>
         <a href="#enquiry" class="pkg-btn">Get Quote for 10 kW →</a>
       </div>
-
     </div>
-
-    <!-- PM Surya Ghar note -->
     <div style="margin-top:2rem;background:var(--white);border-radius:18px;padding:1.4rem 1.8rem;border:2px solid var(--cream-dark);display:flex;align-items:flex-start;gap:1rem;" class="reveal">
       <span style="font-size:1.5rem;flex-shrink:0;">🏛️</span>
       <div>
@@ -479,54 +365,31 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
     <h2 class="sec-h reveal">Only Branded, Certified Components</h2>
     <p class="sec-p reveal">We never compromise on quality. Every system uses top-tier Indian and global brands — so your investment lasts 25+ years.</p>
     <div class="specs-grid">
-
       <div class="spec-card reveal">
         <div class="spec-icon">🔆</div>
         <div class="spec-title">Solar Panels</div>
-        <div class="brand-chips">
-          <span class="brand-chip">Adani Solar</span>
-          <span class="brand-chip">Waaree</span>
-          <span class="brand-chip">Vikram Solar</span>
-          <span class="brand-chip">Tata Power Solar</span>
-        </div>
+        <div class="brand-chips"><span class="brand-chip">Adani Solar</span><span class="brand-chip">Waaree</span><span class="brand-chip">Vikram Solar</span><span class="brand-chip">Tata Power Solar</span></div>
         <p class="spec-desc">Mono-PERC / TOPCon high-efficiency panels (550W–620W). 25-year performance warranty. Made in India. BIS certified, ALMM approved.</p>
       </div>
-
       <div class="spec-card reveal">
         <div class="spec-icon">⚡</div>
         <div class="spec-title">Solar Inverters</div>
-        <div class="brand-chips">
-          <span class="brand-chip">Invergy</span>
-          <span class="brand-chip">Luminous</span>
-          <span class="brand-chip">Waaree</span>
-          <span class="brand-chip">Polycab</span>
-          <span class="brand-chip">Havells</span>
-        </div>
+        <div class="brand-chips"><span class="brand-chip">Invergy</span><span class="brand-chip">Luminous</span><span class="brand-chip">Waaree</span><span class="brand-chip">Polycab</span><span class="brand-chip">Havells</span></div>
         <p class="spec-desc">String inverters and hybrid inverters with 5–10 year warranty. Grid-tie and off-grid options available. MNRE empanelled models only.</p>
       </div>
-
       <div class="spec-card reveal">
         <div class="spec-icon">🏗️</div>
         <div class="spec-title">Mounting Structure</div>
-        <div class="brand-chips">
-          <span class="brand-chip">Hot-Dip GI</span>
-          <span class="brand-chip">Standard GI</span>
-        </div>
-        <p class="spec-desc"><strong style="color:var(--cream);">Hot-Dip Galvanised (HDG) Structure</strong> — maximum corrosion resistance, ideal for coastal & humid regions. Standard GI structure for inland locations. Both carry 10-year structural warranty.</p>
+        <div class="brand-chips"><span class="brand-chip">Hot-Dip GI</span><span class="brand-chip">Standard GI</span></div>
+        <p class="spec-desc"><strong style="color:var(--cream);">Hot-Dip Galvanised (HDG) Structure</strong> — maximum corrosion resistance, ideal for coastal &amp; humid regions. Standard GI structure for inland locations. Both carry 10-year structural warranty.</p>
       </div>
-
       <div class="spec-card reveal">
         <div class="spec-icon">🔌</div>
-        <div class="spec-title">Wiring & Cables</div>
-        <div class="brand-chips">
-          <span class="brand-chip">Polycab</span>
-        </div>
-        <p class="spec-desc"><strong style="color:var(--cream);">100% Polycab DC & AC cables</strong> — India's most trusted brand for solar wiring. UV-resistant, fire-retardant, rated for 25-year outdoor use. All MC4 connectors and junction boxes are IP67 rated.</p>
+        <div class="spec-title">Wiring &amp; Cables</div>
+        <div class="brand-chips"><span class="brand-chip">Polycab</span></div>
+        <p class="spec-desc"><strong style="color:var(--cream);">100% Polycab DC &amp; AC cables</strong> — India's most trusted brand for solar wiring. UV-resistant, fire-retardant, rated for 25-year outdoor use. All MC4 connectors and junction boxes are IP67 rated.</p>
       </div>
-
     </div>
-
-    <!-- Polycab highlight -->
     <div style="margin-top:2rem;background:rgba(254,243,199,.12);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:1.4rem 1.8rem;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;" class="reveal">
       <span style="font-size:1.8rem;">🏆</span>
       <div>
@@ -566,22 +429,10 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
       </div>
       <div class="promise-right reveal">
         <div class="promise-cards">
-          <div class="pc">
-            <div class="pc-top"><span class="pc-icon">🔒</span><h4>Verified Vendor Network</h4></div>
-            <p>We only work with vendors who pass our quality and certification checks. You will never be handed to an unknown or uncertified installer.</p>
-          </div>
-          <div class="pc">
-            <div class="pc-top"><span class="pc-icon">⚡</span><h4>Speed Guarantee</h4></div>
-            <p>Solar installation completed within agreed timelines. If your vendor misses the date without valid reason — we step in the same day.</p>
-          </div>
-          <div class="pc">
-            <div class="pc-top"><span class="pc-icon">🏅</span><h4>Quality Assurance Check</h4></div>
-            <p>Post-installation, our technical team does a quality audit of your system before sign-off. No shortcuts allowed.</p>
-          </div>
-          <div class="pc refund-card">
-            <div class="pc-top"><span class="pc-icon">💰</span><h4>Instant Refund Promise</h4></div>
-            <p>If a vendor fails to deliver — on quality, speed, or conduct — you get a <strong>full refund within 72 hours.</strong> We take the loss, not you.</p>
-          </div>
+          <div class="pc"><div class="pc-top"><span class="pc-icon">🔒</span><h4>Verified Vendor Network</h4></div><p>We only work with vendors who pass our quality and certification checks. You will never be handed to an unknown or uncertified installer.</p></div>
+          <div class="pc"><div class="pc-top"><span class="pc-icon">⚡</span><h4>Speed Guarantee</h4></div><p>Solar installation completed within agreed timelines. If your vendor misses the date without valid reason — we step in the same day.</p></div>
+          <div class="pc"><div class="pc-top"><span class="pc-icon">🏅</span><h4>Quality Assurance Check</h4></div><p>Post-installation, our technical team does a quality audit of your system before sign-off. No shortcuts allowed.</p></div>
+          <div class="pc refund-card"><div class="pc-top"><span class="pc-icon">💰</span><h4>Instant Refund Promise</h4></div><p>If a vendor fails to deliver — on quality, speed, or conduct — you get a <strong>full refund within 72 hours.</strong> We take the loss, not you.</p></div>
         </div>
       </div>
     </div>
@@ -599,9 +450,9 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
         <ul class="form-trust-list reveal">
           <li>100% free consultation — no obligation</li>
           <li>Matched to verified vendors in your city/district</li>
-          <li>Bank loan & subsidy assistance included</li>
+          <li>Bank loan &amp; subsidy assistance included</li>
           <li>Your data is secure — never shared or sold</li>
-          <li>Complaint & refund protection from day one</li>
+          <li>Complaint &amp; refund protection from day one</li>
           <li>Support in your regional language</li>
         </ul>
         <div style="margin-top:1.8rem;background:var(--green-xlight);border-radius:16px;padding:1.2rem 1.4rem;border:1.5px solid rgba(6,95,70,.12);" class="reveal">
@@ -615,25 +466,16 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
         <p class="form-sub">Free quote · No commitment · Results in 24 hours</p>
 
         <div id="enquiry-form">
+          <!-- Error box -->
+          <div class="form-error" id="form-error">⚠️ Please fill in all required fields.</div>
+
           <div class="form-row">
-            <div class="fg">
-              <label>First Name</label>
-              <input type="text" id="e-fname" placeholder="Rahul">
-            </div>
-            <div class="fg">
-              <label>Last Name</label>
-              <input type="text" id="e-lname" placeholder="Sharma">
-            </div>
+            <div class="fg"><label>First Name</label><input type="text" id="e-fname" placeholder="Rahul"></div>
+            <div class="fg"><label>Last Name</label><input type="text" id="e-lname" placeholder="Sharma"></div>
           </div>
           <div class="form-row">
-            <div class="fg">
-              <label>Mobile Number</label>
-              <input type="tel" id="e-phone" placeholder="+91 98765 43210">
-            </div>
-            <div class="fg">
-              <label>Email ID</label>
-              <input type="email" id="e-email" placeholder="you@gmail.com">
-            </div>
+            <div class="fg"><label>Mobile Number</label><input type="tel" id="e-phone" placeholder="+91 98765 43210"></div>
+            <div class="fg"><label>Email ID</label><input type="email" id="e-email" placeholder="you@gmail.com"></div>
           </div>
           <div class="form-row">
             <div class="fg">
@@ -650,10 +492,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
                 <option>West Bengal</option>
               </select>
             </div>
-            <div class="fg">
-              <label>City / District</label>
-              <input type="text" id="e-city" placeholder="e.g. Jaipur">
-            </div>
+            <div class="fg"><label>City / District</label><input type="text" id="e-city" placeholder="e.g. Jaipur"></div>
           </div>
           <div class="form-row">
             <div class="fg">
@@ -667,10 +506,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
                 <option>Not sure — advise me</option>
               </select>
             </div>
-            <div class="fg">
-              <label>Sanctioned Load (kW)</label>
-              <input type="text" id="e-load" placeholder="e.g. 5 kW or check your bill">
-            </div>
+            <div class="fg"><label>Sanctioned Load (kW)</label><input type="text" id="e-load" placeholder="e.g. 5 kW or check your bill"></div>
           </div>
           <div class="fg">
             <label>Preferred Installation Timeline</label>
@@ -699,7 +535,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
             </div>
           </div>
 
-          <button class="submit-btn" onclick="submitEnquiry()">🌞 Submit & Get Free Quote</button>
+          <button class="submit-btn" id="submit-btn" onclick="submitEnquiry()">🌞 Submit &amp; Get Free Quote</button>
           <p class="form-note">By submitting you agree to our <a href="#">Terms</a>. We will never spam you or sell your data.</p>
         </div>
 
@@ -727,62 +563,155 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
     <img src="Modern Solar Energy Logo - SUNLYNKS (A4).png" alt="Sunlynks Logo" class="nav-logo">
     <p>Your Solar Partner..</p>
   </div>
-  <div class="footer-col">
-    <h4>Product</h4>
-    <a href="#">SunlynksCRM</a>
-    <a href="#">Solar Kit</a>
-    <a href="#">Others</a>
-  </div>
-  <div class="footer-col">
-    <h4>Company</h4>
-    <a href="#">About</a>
-    <a href="#">Blog</a>
-    <a href="#">Careers</a>
-  </div>
-  <div class="footer-col">
-    <h4>Support</h4>
-    <a href="#">Help Center</a>
-    <a href="#">Contact</a>
-    <a href="#">Privacy</a>
-  </div>
+  <div class="footer-col"><h4>Product</h4><a href="#">SunlynksCRM</a><a href="#">Solar Kit</a><a href="#">Others</a></div>
+  <div class="footer-col"><h4>Company</h4><a href="#">About</a><a href="#">Blog</a><a href="#">Careers</a></div>
+  <div class="footer-col"><h4>Support</h4><a href="#">Help Center</a><a href="#">Contact</a><a href="#">Privacy</a></div>
 </footer>
 <div class="footer-bottom">© 2026 Sunlynk. All rights reserved. Built for India's solar future 🌱</div>
+
 <script>
-  window.addEventListener('scroll',()=>{
-    document.getElementById('nav').classList.toggle('scrolled',scrollY>20);
+  // ─── CONFIG ───────────────────────────────────────────────
+  const WEB3FORMS_KEY = "51c86af4-3ad1-4199-8d07-a7dfe4e70bf1";
+
+  // ─── NAV ──────────────────────────────────────────────────
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', scrollY > 20);
   });
-  function toggleNav(){document.getElementById('mobmenu').classList.toggle('open');}
-  function closeNav(){document.getElementById('mobmenu').classList.remove('open');}
+  function toggleNav() { document.getElementById('mobmenu').classList.toggle('open'); }
+  function closeNav()  { document.getElementById('mobmenu').classList.remove('open'); }
 
-  function showFileName(input){
-    const el=document.getElementById('file-name');
-    el.textContent=input.files[0]?'📎 '+input.files[0].name:'';
+  // ─── FILE NAME DISPLAY ────────────────────────────────────
+  function showFileName(input) {
+    const el = document.getElementById('file-name');
+    el.textContent = input.files[0] ? '📎 ' + input.files[0].name : '';
   }
 
-  function submitEnquiry(){
-    const ids=['e-fname','e-lname','e-phone','e-email','e-state','e-city','e-kw','e-load','e-timeline'];
-    const vals=ids.map(id=>document.getElementById(id).value.trim());
-    let ok=true;
-    ids.forEach((id,i)=>{
-      const el=document.getElementById(id);
-      if(!vals[i]){el.style.borderColor='#ef4444';ok=false;el.addEventListener('input',()=>el.style.borderColor='',{once:true});}
+  // ─── ENQUIRY SUBMIT + WEB3FORMS ───────────────────────────
+  async function submitEnquiry() {
+    // Required fields (notes & file are optional)
+    const requiredFields = {
+      'e-fname':    'First Name',
+      'e-lname':    'Last Name',
+      'e-phone':    'Mobile Number',
+      'e-email':    'Email ID',
+      'e-state':    'State',
+      'e-city':     'City / District',
+      'e-kw':       'System Size',
+      'e-load':     'Sanctioned Load',
+      'e-timeline': 'Installation Timeline'
+    };
+
+    const ids   = Object.keys(requiredFields);
+    const vals  = {};
+    const errorEl = document.getElementById('form-error');
+    let hasEmpty  = false;
+
+    // Validate required fields
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      const v  = el.value.trim();
+      vals[id] = v;
+      if (!v) {
+        hasEmpty = true;
+        el.style.borderColor = '#ef4444';
+        el.addEventListener('input', () => el.style.borderColor = '', { once: true });
+      } else {
+        el.style.borderColor = '';
+      }
     });
-    if(!ok) return;
-    document.getElementById('enquiry-form').style.display='none';
-    document.getElementById('form-success').style.display='block';
+
+    if (hasEmpty) {
+      errorEl.textContent = '⚠️ Please fill in all required fields before submitting.';
+      errorEl.classList.add('show');
+      return;
+    }
+
+    // Email validation
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(vals['e-email'])) {
+      document.getElementById('e-email').style.borderColor = '#ef4444';
+      errorEl.textContent = '⚠️ Please enter a valid email address.';
+      errorEl.classList.add('show');
+      return;
+    }
+
+    errorEl.classList.remove('show');
+
+    // Loading state
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="btn-spinner"></span>Submitting…';
+
+    // Optional fields
+    const notes    = document.getElementById('e-notes').value.trim();
+    const fileInput = document.getElementById('e-bill');
+    const fileName = fileInput.files[0] ? fileInput.files[0].name : 'Not uploaded';
+
+    // Build Web3Forms payload
+    // NOTE: File attachment is not sent via Web3Forms API (binary files need multipart/form-data).
+    // The file name is captured so your team knows to request it on the follow-up call.
+    const payload = {
+      access_key: WEB3FORMS_KEY,
+      subject:    "New Solar Enquiry — Sunlynks Consumer",
+      from_name:  `${vals['e-fname']} ${vals['e-lname']}`,
+      email:      vals['e-email'],
+
+      // All form fields with human-readable labels
+      "First Name":                  vals['e-fname'],
+      "Last Name":                   vals['e-lname'],
+      "Mobile Number":               vals['e-phone'],
+      "Email ID":                    vals['e-email'],
+      "State":                       vals['e-state'],
+      "City / District":             vals['e-city'],
+      "System Size Required":        vals['e-kw'],
+      "Sanctioned Load":             vals['e-load'],
+      "Preferred Installation Timeline": vals['e-timeline'],
+      "Additional Notes":            notes || 'None',
+      "Electricity Bill Uploaded":   fileName,
+
+      // Metadata
+      "Enquiry Source":  "Consumer Page — Solar Enquiry Form",
+      "Submitted At":    new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+    };
+
+    // Submit to Web3Forms
+    try {
+      const res  = await fetch("https://api.web3forms.com/submit", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body:    JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        // ✅ Success
+        document.getElementById('enquiry-form').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+        console.log('✅ Web3Forms submission successful:', data);
+      } else {
+        throw new Error(data.message || 'Submission failed.');
+      }
+
+    } catch (err) {
+      console.error('❌ Web3Forms error:', err);
+      errorEl.textContent = '❌ Something went wrong. Please try again or call us at 9304364781.';
+      errorEl.classList.add('show');
+      btn.disabled = false;
+      btn.innerHTML = '🌞 Submit &amp; Get Free Quote';
+    }
   }
 
-  // Scroll reveal
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach((e,i)=>{
-      if(e.isIntersecting){
-        e.target.style.transitionDelay=(i%5)*.07+'s';
+  // ─── SCROLL REVEAL ────────────────────────────────────────
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = (i % 5) * 0.07 + 's';
         e.target.classList.add('visible');
         obs.unobserve(e.target);
       }
     });
-  },{threshold:.1});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
