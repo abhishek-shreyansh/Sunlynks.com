@@ -30,12 +30,10 @@
 html { scroll-behavior: smooth; }
 body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
 
-/* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--cream); }
 ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 6px; }
 
-/* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   height: 68px; display: flex; align-items: center;
@@ -45,17 +43,8 @@ nav {
   transition: box-shadow .3s;
 }
 nav.scrolled { box-shadow: 0 2px 32px rgba(6,95,70,0.10); }
-  .nav-logo-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .nav-logo {
-    max-width: 150px;
-    display: block;
-  }
-
+.nav-logo-wrapper { display: flex; align-items: center; gap: 10px; }
+.nav-logo { max-width: 150px; display: block; }
 .nav-right { display: flex; align-items: center; gap: 1.8rem; }
 .nav-right a { font-size: .88rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s; }
 .nav-right a:hover { color: var(--green); }
@@ -65,7 +54,6 @@ nav.scrolled { box-shadow: 0 2px 32px rgba(6,95,70,0.10); }
   text-decoration: none; transition: all .2s;
 }
 .nav-pill:hover { background: var(--orange-warm); transform: translateY(-1px); }
-
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
 .hamburger span { width: 24px; height: 2px; background: var(--green); border-radius: 2px; transition: all .3s; }
 .mob-nav {
@@ -76,7 +64,6 @@ nav.scrolled { box-shadow: 0 2px 32px rgba(6,95,70,0.10); }
 .mob-nav a { font-size: 1.1rem; font-weight: 600; color: var(--muted); text-decoration: none; }
 .mob-nav .nav-pill { align-self: flex-start; }
 
-/* ── HERO ── */
 .hero {
   min-height: 100vh; padding: 120px 6vw 80px;
   display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
@@ -87,13 +74,11 @@ nav.scrolled { box-shadow: 0 2px 32px rgba(6,95,70,0.10); }
     var(--white);
 }
 .hero::after {
-  content: '';
-  position: absolute; bottom: -60px; right: -60px;
+  content: ''; position: absolute; bottom: -60px; right: -60px;
   width: 380px; height: 380px;
   background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
   opacity: .35; pointer-events: none;
 }
-
 .hero-left { position: relative; z-index: 1; }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: .5rem;
@@ -131,7 +116,6 @@ nav.scrolled { box-shadow: 0 2px 32px rgba(6,95,70,0.10); }
   text-decoration: none; transition: all .2s;
 }
 .btn-outline:hover { background: var(--green); color: #fff; }
-
 .hero-trust {
   display: flex; gap: 2rem; margin-top: 3rem; flex-wrap: wrap;
   animation: fadeUp .6s .32s ease both;
@@ -139,29 +123,19 @@ nav.scrolled { box-shadow: 0 2px 32px rgba(6,95,70,0.10); }
 .trust-item { text-align: center; }
 .trust-num { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 900; color: var(--orange); }
 .trust-label { font-size: .78rem; color: var(--muted); margin-top: .15rem; }
-
-/* HERO RIGHT — floating card */
-.hero-right {
-  position: relative; z-index: 1;
-  animation: fadeUp .7s .1s ease both;
-}
+.hero-right { position: relative; z-index: 1; animation: fadeUp .7s .1s ease both; }
 .hero-card {
   background: var(--white); border-radius: 28px;
   border: 1.5px solid var(--border);
-  box-shadow: var(--shadow); padding: 2.4rem;
-  position: relative;
+  box-shadow: var(--shadow); padding: 2.4rem; position: relative;
 }
 .hero-card::before {
   content: ''; position: absolute; top: -1.5px; left: 40px; right: 40px; height: 4px;
   background: linear-gradient(90deg, var(--green), var(--orange));
   border-radius: 0 0 4px 4px;
 }
-.hero-card h3 {
-  font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 800;
-  color: var(--green); margin-bottom: .4rem;
-}
+.hero-card h3 { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 800; color: var(--green); margin-bottom: .4rem; }
 .hero-card .sub { font-size: .83rem; color: var(--muted); margin-bottom: 1.6rem; }
-
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
 .fg { margin-bottom: .9rem; }
 .fg label { display: block; font-size: .78rem; font-weight: 700; color: var(--muted); margin-bottom: .35rem; letter-spacing: .03em; text-transform: uppercase; }
@@ -171,19 +145,8 @@ nav.scrolled { box-shadow: 0 2px 32px rgba(6,95,70,0.10); }
   font-family: 'Plus Jakarta Sans', sans-serif; font-size: .9rem; color: var(--text);
   outline: none; transition: border-color .2s, box-shadow .2s;
 }
-.fg input:focus, .fg select:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(6,95,70,0.08);
-}
+.fg input:focus, .fg select:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(6,95,70,0.08); }
 .fg input::placeholder { color: #aab8a8; }
-
-.pwd-wrap { position: relative; }
-.pwd-wrap input { padding-right: 2.6rem; }
-.pwd-toggle {
-  position: absolute; right: .9rem; top: 50%; transform: translateY(-50%);
-  cursor: pointer; font-size: .9rem; color: var(--muted); user-select: none;
-}
-
 .register-btn {
   width: 100%; padding: .9rem; border-radius: 14px;
   background: linear-gradient(135deg, var(--green), var(--green-mid));
@@ -191,241 +154,116 @@ nav.scrolled { box-shadow: 0 2px 32px rgba(6,95,70,0.10); }
   font-size: 1rem; font-weight: 700; border: none; cursor: pointer;
   transition: opacity .2s, transform .15s;
   box-shadow: 0 4px 18px rgba(6,95,70,0.22);
+  position: relative;
 }
-.register-btn:hover { opacity: .92; transform: translateY(-1px); }
-
+.register-btn:hover:not(:disabled) { opacity: .92; transform: translateY(-1px); }
+.register-btn:disabled { opacity: .7; cursor: not-allowed; transform: none; }
+.btn-spinner {
+  display: inline-block; width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.4); border-top-color: #fff;
+  border-radius: 50%; animation: spin .7s linear infinite;
+  vertical-align: middle; margin-right: .5rem;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
 .form-note { text-align: center; font-size: .78rem; color: var(--muted); margin-top: .8rem; }
 .form-note a { color: var(--orange); text-decoration: none; }
-
-/* SUCCESS STATE */
-#reg-success {
-  display: none; text-align: center; padding: 2rem 0;
+.form-error {
+  background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px;
+  padding: .7rem 1rem; font-size: .83rem; color: #dc2626;
+  margin-bottom: .8rem; display: none;
 }
+.form-error.show { display: block; }
+
+#reg-success { display: none; text-align: center; padding: 2rem 0; }
 #reg-success .s-icon { font-size: 3rem; margin-bottom: .8rem; }
 #reg-success h4 { font-family: 'Fraunces', serif; font-size: 1.4rem; color: var(--green); margin-bottom: .4rem; }
 #reg-success p { font-size: .88rem; color: var(--muted); line-height: 1.6; }
 
-/* ── INDIA MAP STRIP ── */
 .india-strip {
   background: var(--green); padding: 1.2rem 6vw;
-  display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
-  justify-content: center;
+  display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; justify-content: center;
 }
-.india-strip p {
-  color: rgba(255,255,255,0.85); font-size: .88rem; font-weight: 500;
-}
+.india-strip p { color: rgba(255,255,255,0.85); font-size: .88rem; font-weight: 500; }
 .india-strip strong { color: var(--cream); }
-.state-chips {
-  display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center;
-}
-.chip {
-  background: rgba(255,255,255,0.1); color: rgba(255,255,255,.8);
-  font-size: .72rem; padding: .25rem .7rem; border-radius: 50px;
-  border: 1px solid rgba(255,255,255,0.18);
-}
+.state-chips { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+.chip { background: rgba(255,255,255,0.1); color: rgba(255,255,255,.8); font-size: .72rem; padding: .25rem .7rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.18); }
 
-/* ── SECTION BASE ── */
 .sec { padding: 90px 6vw; }
 .sec-inner { max-width: 1120px; margin: 0 auto; }
-.badge {
-  display: inline-block; background: var(--cream); color: var(--orange);
-  font-size: .75rem; font-weight: 800; letter-spacing: .08em;
-  text-transform: uppercase; padding: .3rem 1rem; border-radius: 50px;
-  margin-bottom: .9rem;
-}
-.sec-h {
-  font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 900; color: var(--green); line-height: 1.12; margin-bottom: .9rem;
-}
+.badge { display: inline-block; background: var(--cream); color: var(--orange); font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: .3rem 1rem; border-radius: 50px; margin-bottom: .9rem; }
+.sec-h { font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; color: var(--green); line-height: 1.12; margin-bottom: .9rem; }
 .sec-p { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 520px; margin-bottom: 3rem; }
 
-/* ── BENEFITS ── */
 .benefits-sec { background: var(--cream); }
 .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.4rem; }
-.benefit-card {
-  background: var(--white); border-radius: var(--r); padding: 1.8rem;
-  border: 1.5px solid rgba(6,95,70,0.09);
-  transition: transform .25s, box-shadow .25s;
-  position: relative; overflow: hidden;
-}
+.benefit-card { background: var(--white); border-radius: var(--r); padding: 1.8rem; border: 1.5px solid rgba(6,95,70,0.09); transition: transform .25s, box-shadow .25s; position: relative; overflow: hidden; }
 .benefit-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
-.benefit-card::after {
-  content: ''; position: absolute;
-  bottom: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, var(--green), var(--orange));
-  opacity: 0; transition: opacity .25s;
-}
+.benefit-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green), var(--orange)); opacity: 0; transition: opacity .25s; }
 .benefit-card:hover::after { opacity: 1; }
-.b-icon {
-  width: 50px; height: 50px; border-radius: 14px;
-  background: var(--green-xlight); display: flex; align-items: center;
-  justify-content: center; font-size: 1.4rem; margin-bottom: 1.1rem;
-}
-.benefit-card h4 {
-  font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 800;
-  color: var(--green); margin-bottom: .5rem;
-}
+.b-icon { width: 50px; height: 50px; border-radius: 14px; background: var(--green-xlight); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.1rem; }
+.benefit-card h4 { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 800; color: var(--green); margin-bottom: .5rem; }
 .benefit-card p { font-size: .87rem; color: var(--muted); line-height: 1.65; }
 
-/* ── HOW IT WORKS ── */
 .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; position: relative; }
-.step-card {
-  text-align: center; padding: 2rem 1.5rem;
-  border-radius: var(--r); border: 1.5px solid var(--border);
-  background: var(--white); transition: box-shadow .2s, transform .2s;
-}
+.step-card { text-align: center; padding: 2rem 1.5rem; border-radius: var(--r); border: 1.5px solid var(--border); background: var(--white); transition: box-shadow .2s, transform .2s; }
 .step-card:hover { box-shadow: var(--shadow-sm); transform: translateY(-3px); }
-.step-num {
-  width: 50px; height: 50px; border-radius: 50%;
-  background: var(--green); color: #fff; font-family: 'Fraunces', serif;
-  font-size: 1.2rem; font-weight: 900; display: flex; align-items: center;
-  justify-content: center; margin: 0 auto 1.1rem;
-}
+.step-num { width: 50px; height: 50px; border-radius: 50%; background: var(--green); color: #fff; font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.1rem; }
 .step-card h4 { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 800; color: var(--green); margin-bottom: .5rem; }
 .step-card p { font-size: .84rem; color: var(--muted); line-height: 1.6; }
-.step-arrow {
-  display: flex; align-items: center; justify-content: center;
-  color: var(--orange); font-size: 1.5rem;
-}
+.step-arrow { display: flex; align-items: center; justify-content: center; color: var(--orange); font-size: 1.5rem; }
 
-/* ── SERVICES ── */
 .services-sec { background: var(--green); }
 .services-sec .badge { background: rgba(254,243,199,.15); color: var(--cream-dark); }
 .services-sec .sec-h { color: #fff; }
 .services-sec .sec-p { color: rgba(255,255,255,.65); }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
-.srv-card {
-  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.13);
-  border-radius: var(--r); padding: 1.8rem;
-  transition: background .2s, transform .2s;
-}
+.srv-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.13); border-radius: var(--r); padding: 1.8rem; transition: background .2s, transform .2s; }
 .srv-card:hover { background: rgba(255,255,255,.12); transform: translateY(-3px); }
 .srv-icon { font-size: 1.8rem; margin-bottom: 1rem; }
 .srv-card h4 { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 800; color: var(--cream); margin-bottom: .4rem; }
 .srv-card p { font-size: .85rem; color: rgba(255,255,255,.6); line-height: 1.6; }
 
-/* ── ORIENTATION ── */
 .orient-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-.orient-visual {
-  background: linear-gradient(145deg, var(--green-xlight), var(--cream));
-  border-radius: 28px; padding: 2.5rem;
-  border: 1.5px solid rgba(6,95,70,0.10);
-}
-.orient-month {
-  display: flex; align-items: center; gap: 1rem; padding: 1rem;
-  border-radius: 14px; background: var(--white); margin-bottom: .8rem;
-  border: 1px solid var(--border); transition: transform .2s;
-}
+.orient-visual { background: linear-gradient(145deg, var(--green-xlight), var(--cream)); border-radius: 28px; padding: 2.5rem; border: 1.5px solid rgba(6,95,70,0.10); }
+.orient-month { display: flex; align-items: center; gap: 1rem; padding: 1rem; border-radius: 14px; background: var(--white); margin-bottom: .8rem; border: 1px solid var(--border); transition: transform .2s; }
 .orient-month:hover { transform: translateX(5px); }
-.om-num {
-  width: 40px; height: 40px; background: var(--orange); color: #fff;
-  border-radius: 10px; display: flex; align-items: center; justify-content: center;
-  font-family: 'Fraunces', serif; font-weight: 900; font-size: .95rem; flex-shrink: 0;
-}
+.om-num { width: 40px; height: 40px; background: var(--orange); color: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-weight: 900; font-size: .95rem; flex-shrink: 0; }
 .om-text strong { display: block; font-size: .9rem; color: var(--green); font-weight: 700; }
 .om-text span { font-size: .78rem; color: var(--muted); }
 .orient-right .sec-p { margin-bottom: 1.5rem; }
 .orient-list { list-style: none; }
-.orient-list li {
-  display: flex; align-items: flex-start; gap: .8rem;
-  font-size: .9rem; color: var(--muted); margin-bottom: .9rem; line-height: 1.6;
-}
-.orient-list li::before {
-  content: '✓'; width: 22px; height: 22px; border-radius: 50%;
-  background: var(--green-xlight); color: var(--green);
-  display: flex; align-items: center; justify-content: center;
-  font-size: .75rem; font-weight: 900; flex-shrink: 0; margin-top: .1rem;
-}
+.orient-list li { display: flex; align-items: flex-start; gap: .8rem; font-size: .9rem; color: var(--muted); margin-bottom: .9rem; line-height: 1.6; }
+.orient-list li::before { content: '✓'; width: 22px; height: 22px; border-radius: 50%; background: var(--green-xlight); color: var(--green); display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 900; flex-shrink: 0; margin-top: .1rem; }
 
-/* ── PAN INDIA ── */
 .india-sec { background: var(--cream); }
 .india-content { display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; align-items: center; }
-.map-svg-wrap {
-  position: relative;
-  background: var(--white); border-radius: 28px; padding: 2rem;
-  border: 1.5px solid var(--border); text-align: center;
-}
+.map-svg-wrap { position: relative; background: var(--white); border-radius: 28px; padding: 2rem; border: 1.5px solid var(--border); text-align: center; }
 .map-svg-wrap svg { width: 100%; max-width: 300px; height: auto; }
-.map-pulse {
-  display: flex; align-items: center; justify-content: center; gap: .5rem;
-  margin-top: 1rem; font-size: .82rem; color: var(--muted);
-}
-.pulse-dot {
-  width: 10px; height: 10px; background: var(--orange); border-radius: 50%;
-  animation: pulse 1.5s infinite;
-}
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.5); opacity: .5; }
-}
-
+.map-pulse { display: flex; align-items: center; justify-content: center; gap: .5rem; margin-top: 1rem; font-size: .82rem; color: var(--muted); }
+.pulse-dot { width: 10px; height: 10px; background: var(--orange); border-radius: 50%; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: .5; } }
 .india-zones { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-top: 1.5rem; }
-.zone-chip {
-  display: flex; align-items: center; gap: .6rem;
-  background: var(--white); border-radius: 12px;
-  padding: .7rem 1rem; border: 1px solid var(--border);
-  font-size: .83rem; color: var(--green); font-weight: 600;
-}
+.zone-chip { display: flex; align-items: center; gap: .6rem; background: var(--white); border-radius: 12px; padding: .7rem 1rem; border: 1px solid var(--border); font-size: .83rem; color: var(--green); font-weight: 600; }
 .zone-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
-/* ── CTA STRIP ── */
-.cta-strip {
-  background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
-  padding: 70px 6vw; text-align: center;
-  position: relative; overflow: hidden;
-}
-.cta-strip::before {
-  content: ''; position: absolute; top: -100px; right: -100px;
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(234,88,12,.2) 0%, transparent 65%);
-}
-.cta-strip h2 {
-  font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 900; color: #fff; margin-bottom: 1rem;
-}
+.cta-strip { background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%); padding: 70px 6vw; text-align: center; position: relative; overflow: hidden; }
+.cta-strip::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(234,88,12,.2) 0%, transparent 65%); }
+.cta-strip h2 { font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; color: #fff; margin-bottom: 1rem; }
 .cta-strip p { color: rgba(255,255,255,.7); font-size: 1rem; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
-.cta-strip .btn-cream {
-  background: var(--cream); color: var(--green);
-  padding: .9rem 2.4rem; border-radius: 50px;
-  font-size: 1rem; font-weight: 800; text-decoration: none;
-  transition: all .2s; display: inline-block;
-}
+.cta-strip .btn-cream { background: var(--cream); color: var(--green); padding: .9rem 2.4rem; border-radius: 50px; font-size: 1rem; font-weight: 800; text-decoration: none; transition: all .2s; display: inline-block; }
 .cta-strip .btn-cream:hover { background: #fff; transform: translateY(-2px); }
 
-/* ── FOOTER ── */
-footer {
-    background: var(--text-dark); color: rgba(255,255,255,0.6);
-    padding: 3rem 5vw 2rem;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 2rem;
-  }
-  .footer-brand p { font-size: .85rem; line-height: 1.7; max-width: 240px; }
-  .footer-col h4 {
-    font-size: .85rem; font-weight: 700; color: #fff;
-    margin-bottom: .8rem; text-transform: uppercase; letter-spacing: .06em;
-  }
-  .footer-col a {
-    display: block; font-size: .83rem; color: rgba(255,255,255,0.5);
-    text-decoration: none; margin-bottom: .5rem; transition: color .2s;
-  }
-  .footer-col a:hover { color: var(--cream); }
-  .footer-bottom {
-    background: var(--text-dark);
-    padding: 1rem 5vw; text-align: center;
-    font-size: .8rem; color: rgba(255,255,255,0.3);
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
+footer { background: var(--text-dark); color: rgba(255,255,255,0.6); padding: 3rem 5vw 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; }
+.footer-brand p { font-size: .85rem; line-height: 1.7; max-width: 240px; }
+.footer-col h4 { font-size: .85rem; font-weight: 700; color: #fff; margin-bottom: .8rem; text-transform: uppercase; letter-spacing: .06em; }
+.footer-col a { display: block; font-size: .83rem; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: .5rem; transition: color .2s; }
+.footer-col a:hover { color: var(--cream); }
+.footer-bottom { background: var(--text-dark); padding: 1rem 5vw; text-align: center; font-size: .8rem; color: rgba(255,255,255,0.3); border-top: 1px solid rgba(255,255,255,0.06); }
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity .65s, transform .65s; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 980px) {
   .hero { grid-template-columns: 1fr; }
   .hero-right { order: -1; }
@@ -450,7 +288,6 @@ footer {
   <div class="nav-logo-wrapper">
     <img src="Modern Solar Energy Logo - SUNLYNKS (A4).png" alt="Sunlynks Logo" class="nav-logo">
   </div>
-  </a>
   <div class="nav-right">
     <a href="index.html">Home</a>
     <a href="consumer.html">Consumers</a>
@@ -462,8 +299,8 @@ footer {
     <span></span><span></span><span></span>
   </div>
 </nav>
-<div class="consumer.html" id="mobnav">
-    <a href="index.html" onclick="toggleNav()">Home</a>
+<div class="mob-nav" id="mobnav">
+  <a href="index.html" onclick="toggleNav()">Home</a>
   <a href="consumer.html" onclick="toggleNav()">Consumers</a>
   <a href="vendor.html" onclick="toggleNav()">Vendor</a>
   <a href="crm.html" onclick="toggleNav()">SunlynksCRM</a>
@@ -495,6 +332,9 @@ footer {
       <p class="sub">Free to join. Takes 2 minutes. Start getting leads today.</p>
 
       <div id="reg-form">
+        <!-- Error message box -->
+        <div class="form-error" id="form-error">⚠️ Please fill in all fields before submitting.</div>
+
         <div class="form-row">
           <div class="fg">
             <label>First Name</label>
@@ -552,23 +392,16 @@ footer {
             <option value="">What do you offer?</option>
             <option>Solar Panel Installation</option>
             <option>Solar Panel Manufacturing / Supply</option>
-            <option>Net Metering & Commissioning</option>
-            <option>Loan & Finance Facilitation</option>
+            <option>Net Metering &amp; Commissioning</option>
+            <option>Loan &amp; Finance Facilitation</option>
             <option>Rooftop Solar (Residential)</option>
-            <option>Commercial & Industrial Solar</option>
-            <option>Solar Maintenance & AMC</option>
+            <option>Commercial &amp; Industrial Solar</option>
+            <option>Solar Maintenance &amp; AMC</option>
             <option>Other</option>
           </select>
         </div>
-        <div class="fg">
-          <label>Create Password</label>
-          <div class="pwd-wrap">
-            <input type="password" id="f-pwd" placeholder="Min. 8 characters">
-            <span class="pwd-toggle" onclick="togglePwd()">👁</span>
-          </div>
-        </div>
-        <button class="register-btn" onclick="submitReg()">🌞 Register as Vendor — It's Free</button>
-        <p class="form-note">By registering you agree to our <a href="#">Terms</a> & <a href="#">Privacy Policy</a>. No spam ever.</p>
+        <button class="register-btn" id="reg-btn" onclick="submitReg()">🌞 Register as Vendor — It's Free</button>
+        <p class="form-note">By registering you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a>. No spam ever.</p>
       </div>
 
       <div id="reg-success">
@@ -576,7 +409,7 @@ footer {
         <h4>Welcome to Sunlynks!</h4>
         <p>Your vendor profile is under review.<br>Our team will reach out within <strong>24 hours</strong> to complete your onboarding and assign your first leads.</p>
         <div style="margin-top:1.5rem; background:var(--green-xlight); border-radius:14px; padding:1rem; font-size:.83rem; color:var(--green); font-weight:600;">
-          📱 Watch your email & phone for our onboarding call!
+          📱 Watch your email &amp; phone for our onboarding call!
         </div>
       </div>
     </div>
@@ -601,36 +434,12 @@ footer {
     <h2 class="sec-h reveal">Everything a Solar Vendor Needs to Grow</h2>
     <p class="sec-p reveal">We're not just a CRM. We're your growth partner — giving you the tools, leads, and support to scale your solar business across India.</p>
     <div class="benefits-grid">
-      <div class="benefit-card reveal">
-        <div class="b-icon">🎯</div>
-        <h4>Verified Solar Leads</h4>
-        <p>Receive pre-qualified installation and supply leads directly matched to your location and service category. No cold calling required.</p>
-      </div>
-      <div class="benefit-card reveal">
-        <div class="b-icon">🏦</div>
-        <h4>Bank Finance & Loan Support</h4>
-        <p>We handle the entire loan processing and bank coordination for your customers, so you can close more deals without financial paperwork delays.</p>
-      </div>
-      <div class="benefit-card reveal">
-        <div class="b-icon">⚡</div>
-        <h4>Execution & Installation Network</h4>
-        <p>Connect with our execution team for net metering, commissioning, and technical resources to complete projects faster and professionally.</p>
-      </div>
-      <div class="benefit-card reveal">
-        <div class="b-icon">📊</div>
-        <h4>Vendor Dashboard Access</h4>
-        <p>Track your leads, active projects, payment status, and performance metrics from a single, easy-to-use vendor portal — accessible from mobile too.</p>
-      </div>
-      <div class="benefit-card reveal">
-        <div class="b-icon">🤝</div>
-        <h4>Market Leader Connections</h4>
-        <p>Get introduced to top solar manufacturers, financers, and industry leaders through our curated monthly networking sessions.</p>
-      </div>
-      <div class="benefit-card reveal">
-        <div class="b-icon">🌱</div>
-        <h4>Zero Registration Fee</h4>
-        <p>Joining Sunlynks is completely free. We grow when you grow — our success is tied directly to yours. No hidden fees, ever.</p>
-      </div>
+      <div class="benefit-card reveal"><div class="b-icon">🎯</div><h4>Verified Solar Leads</h4><p>Receive pre-qualified installation and supply leads directly matched to your location and service category. No cold calling required.</p></div>
+      <div class="benefit-card reveal"><div class="b-icon">🏦</div><h4>Bank Finance &amp; Loan Support</h4><p>We handle the entire loan processing and bank coordination for your customers, so you can close more deals without financial paperwork delays.</p></div>
+      <div class="benefit-card reveal"><div class="b-icon">⚡</div><h4>Execution &amp; Installation Network</h4><p>Connect with our execution team for net metering, commissioning, and technical resources to complete projects faster and professionally.</p></div>
+      <div class="benefit-card reveal"><div class="b-icon">📊</div><h4>Vendor Dashboard Access</h4><p>Track your leads, active projects, payment status, and performance metrics from a single, easy-to-use vendor portal — accessible from mobile too.</p></div>
+      <div class="benefit-card reveal"><div class="b-icon">🤝</div><h4>Market Leader Connections</h4><p>Get introduced to top solar manufacturers, financers, and industry leaders through our curated monthly networking sessions.</p></div>
+      <div class="benefit-card reveal"><div class="b-icon">🌱</div><h4>Zero Registration Fee</h4><p>Joining Sunlynks is completely free. We grow when you grow — our success is tied directly to yours. No hidden fees, ever.</p></div>
     </div>
   </div>
 </section>
@@ -642,29 +451,13 @@ footer {
     <h2 class="sec-h reveal">How It Works</h2>
     <p class="sec-p reveal">From registration to your first lead in as little as 24 hours.</p>
     <div class="how-grid">
-      <div class="step-card reveal">
-        <div class="step-num">1</div>
-        <h4>Register Free</h4>
-        <p>Fill in your vendor details — name, company, location, and service type. Takes 2 minutes.</p>
-      </div>
+      <div class="step-card reveal"><div class="step-num">1</div><h4>Register Free</h4><p>Fill in your vendor details — name, company, location, and service type. Takes 2 minutes.</p></div>
       <div class="step-arrow reveal">→</div>
-      <div class="step-card reveal">
-        <div class="step-num">2</div>
-        <h4>Get Verified</h4>
-        <p>Our team reviews your profile and calls you within 24 hours to complete onboarding.</p>
-      </div>
+      <div class="step-card reveal"><div class="step-num">2</div><h4>Get Verified</h4><p>Our team reviews your profile and calls you within 24 hours to complete onboarding.</p></div>
       <div class="step-arrow reveal">→</div>
-      <div class="step-card reveal">
-        <div class="step-num">3</div>
-        <h4>Receive Leads</h4>
-        <p>Start receiving verified solar leads matched to your location and service category.</p>
-      </div>
+      <div class="step-card reveal"><div class="step-num">3</div><h4>Receive Leads</h4><p>Start receiving verified solar leads matched to your location and service category.</p></div>
       <div class="step-arrow reveal">→</div>
-      <div class="step-card reveal">
-        <div class="step-num">4</div>
-        <h4>Close & Grow</h4>
-        <p>Use our finance, execution, and training support to deliver projects and scale your business.</p>
-      </div>
+      <div class="step-card reveal"><div class="step-num">4</div><h4>Close &amp; Grow</h4><p>Use our finance, execution, and training support to deliver projects and scale your business.</p></div>
     </div>
   </div>
 </section>
@@ -676,36 +469,12 @@ footer {
     <h2 class="sec-h reveal">End-to-End Services for Every Vendor</h2>
     <p class="sec-p reveal">Sunlynks takes care of the hard parts so you can focus on installations and growth.</p>
     <div class="services-grid">
-      <div class="srv-card reveal">
-        <div class="srv-icon">🏦</div>
-        <h4>Loan & Financing</h4>
-        <p>We coordinate with leading banks and NBFCs to secure solar financing for your customers quickly and smoothly.</p>
-      </div>
-      <div class="srv-card reveal">
-        <div class="srv-icon">🔧</div>
-        <h4>Technical Execution</h4>
-        <p>From site surveys to net metering and commissioning, our execution team supports every stage of installation.</p>
-      </div>
-      <div class="srv-card reveal">
-        <div class="srv-icon">📋</div>
-        <h4>Documentation Support</h4>
-        <p>We handle government subsidy applications, net metering paperwork, and bank documentation on your behalf.</p>
-      </div>
-      <div class="srv-card reveal">
-        <div class="srv-icon">📡</div>
-        <h4>Sunlynks CRM Access</h4>
-        <p>Manage your pipeline, track leads, and monitor project progress through our dedicated vendor CRM platform.</p>
-      </div>
-      <div class="srv-card reveal">
-        <div class="srv-icon">🎓</div>
-        <h4>Monthly Skill Training</h4>
-        <p>Monthly orientation sessions on solar technology, sales techniques, and new government policies — completely free.</p>
-      </div>
-      <div class="srv-card reveal">
-        <div class="srv-icon">📈</div>
-        <h4>Business Growth Support</h4>
-        <p>Dedicated account managers help you grow your team, enter new markets, and increase project volume consistently.</p>
-      </div>
+      <div class="srv-card reveal"><div class="srv-icon">🏦</div><h4>Loan &amp; Financing</h4><p>We coordinate with leading banks and NBFCs to secure solar financing for your customers quickly and smoothly.</p></div>
+      <div class="srv-card reveal"><div class="srv-icon">🔧</div><h4>Technical Execution</h4><p>From site surveys to net metering and commissioning, our execution team supports every stage of installation.</p></div>
+      <div class="srv-card reveal"><div class="srv-icon">📋</div><h4>Documentation Support</h4><p>We handle government subsidy applications, net metering paperwork, and bank documentation on your behalf.</p></div>
+      <div class="srv-card reveal"><div class="srv-icon">📡</div><h4>Sunlynks CRM Access</h4><p>Manage your pipeline, track leads, and monitor project progress through our dedicated vendor CRM platform.</p></div>
+      <div class="srv-card reveal"><div class="srv-icon">🎓</div><h4>Monthly Skill Training</h4><p>Monthly orientation sessions on solar technology, sales techniques, and new government policies — completely free.</p></div>
+      <div class="srv-card reveal"><div class="srv-icon">📈</div><h4>Business Growth Support</h4><p>Dedicated account managers help you grow your team, enter new markets, and increase project volume consistently.</p></div>
     </div>
   </div>
 </section>
@@ -716,37 +485,11 @@ footer {
     <div class="orient-grid">
       <div class="orient-visual reveal">
         <div style="font-family:'Fraunces',serif; font-size:1rem; font-weight:800; color:var(--green); margin-bottom:1.2rem;">📅 Monthly Vendor Orientation Program</div>
-        <div class="orient-month">
-          <div class="om-num">W1</div>
-          <div class="om-text">
-            <strong>Solar Technology Deep Dive</strong>
-            <span>Panels, inverters, battery systems & trends</span>
-          </div>
-        </div>
-        <div class="orient-month">
-          <div class="om-num">W2</div>
-          <div class="om-text">
-            <strong>Sales & Lead Conversion</strong>
-            <span>Proven scripts, objection handling, closing</span>
-          </div>
-        </div>
-        <div class="orient-month">
-          <div class="om-num">W3</div>
-          <div class="om-text">
-            <strong>Finance & Subsidy Navigation</strong>
-            <span>PM Surya Ghar, bank loans, DISCOM process</span>
-          </div>
-        </div>
-        <div class="orient-month">
-          <div class="om-num">W4</div>
-          <div class="om-text">
-            <strong>Market Leaders Masterclass</strong>
-            <span>Live session with industry leaders & mentors</span>
-          </div>
-        </div>
-        <div style="margin-top:1.2rem; background:var(--orange); color:#fff; border-radius:12px; padding:.8rem 1.1rem; font-size:.82rem; font-weight:700; text-align:center;">
-          🎓 Free for all registered Sunlynks vendors
-        </div>
+        <div class="orient-month"><div class="om-num">W1</div><div class="om-text"><strong>Solar Technology Deep Dive</strong><span>Panels, inverters, battery systems &amp; trends</span></div></div>
+        <div class="orient-month"><div class="om-num">W2</div><div class="om-text"><strong>Sales &amp; Lead Conversion</strong><span>Proven scripts, objection handling, closing</span></div></div>
+        <div class="orient-month"><div class="om-num">W3</div><div class="om-text"><strong>Finance &amp; Subsidy Navigation</strong><span>PM Surya Ghar, bank loans, DISCOM process</span></div></div>
+        <div class="orient-month"><div class="om-num">W4</div><div class="om-text"><strong>Market Leaders Masterclass</strong><span>Live session with industry leaders &amp; mentors</span></div></div>
+        <div style="margin-top:1.2rem; background:var(--orange); color:#fff; border-radius:12px; padding:.8rem 1.1rem; font-size:.82rem; font-weight:700; text-align:center;">🎓 Free for all registered Sunlynks vendors</div>
       </div>
       <div class="orient-right">
         <span class="badge reveal">Monthly Training</span>
@@ -760,7 +503,7 @@ footer {
           <li>Build your own team with Sunlynks talent connection program</li>
           <li>Certificate of completion for every orientation module</li>
         </ul>
-        <a href="#register" class="btn-green" style="display:inline-block; margin-top:.5rem;">Join & Get Trained →</a>
+        <a href="#register" class="btn-green" style="display:inline-block; margin-top:.5rem;">Join &amp; Get Trained →</a>
       </div>
     </div>
   </div>
@@ -788,13 +531,9 @@ footer {
         </div>
       </div>
       <div class="map-svg-wrap reveal">
-        <!-- Simplified India silhouette SVG -->
         <svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg">
-          <path d="M180,20 L220,18 L260,30 L290,50 L300,80 L310,110 L320,130 L340,150 L350,180 L345,210 L330,240 L310,260 L295,290 L280,320 L265,345 L250,365 L235,385 L220,400 L210,420 L200,440 L190,420 L180,400 L165,380 L150,360 L135,335 L118,305 L105,275 L95,245 L80,215 L68,185 L60,155 L62,125 L75,100 L90,78 L110,58 L135,40 Z"
-            fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linejoin="round"/>
-          <!-- J&K -->
+          <path d="M180,20 L220,18 L260,30 L290,50 L300,80 L310,110 L320,130 L340,150 L350,180 L345,210 L330,240 L310,260 L295,290 L280,320 L265,345 L250,365 L235,385 L220,400 L210,420 L200,440 L190,420 L180,400 L165,380 L150,360 L135,335 L118,305 L105,275 L95,245 L80,215 L68,185 L60,155 L62,125 L75,100 L90,78 L110,58 L135,40 Z" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linejoin="round"/>
           <path d="M160,18 L180,20 L175,40 L155,50 L140,40 L130,28 Z" fill="none" stroke="var(--green)" stroke-width="1.5"/>
-          <!-- Dots for major cities -->
           <circle cx="195" cy="155" r="5" fill="var(--orange)" opacity=".9"/>
           <circle cx="155" cy="200" r="4" fill="var(--orange)" opacity=".8"/>
           <circle cx="230" cy="190" r="4" fill="var(--orange)" opacity=".8"/>
@@ -805,16 +544,11 @@ footer {
           <circle cx="200" cy="380" r="4" fill="var(--orange)" opacity=".7"/>
           <circle cx="100" cy="175" r="3.5" fill="var(--orange)" opacity=".7"/>
           <circle cx="270" cy="160" r="3.5" fill="var(--orange)" opacity=".7"/>
-          <!-- Ripple rings -->
           <circle cx="195" cy="155" r="12" fill="none" stroke="var(--orange)" stroke-width="1" opacity=".3"/>
           <circle cx="175" cy="270" r="12" fill="none" stroke="var(--orange)" stroke-width="1" opacity=".3"/>
-          <!-- Label -->
           <text x="200" y="468" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="var(--muted)">India — 28 States + UTs</text>
         </svg>
-        <div class="map-pulse">
-          <div class="pulse-dot"></div>
-          Active vendor presence across India
-        </div>
+        <div class="map-pulse"><div class="pulse-dot"></div> Active vendor presence across India</div>
       </div>
     </div>
   </div>
@@ -855,42 +589,131 @@ footer {
 <div class="footer-bottom">© 2026 Sunlynk. All rights reserved. Built for India's solar future 🌱</div>
 
 <script>
-  // Nav scroll
+  // ─── CONFIG ───────────────────────────────────────────────
+  const WEB3FORMS_KEY = "51c86af4-3ad1-4199-8d07-a7dfe4e70bf1";
+
+  // ─── NAV SCROLL ───────────────────────────────────────────
   window.addEventListener('scroll', () => {
-    document.getElementById('nav').classList.toggle('scrolled', scrollY > 20);
+    document.getElementById('navbar').classList.toggle('scrolled', scrollY > 20);
   });
 
-  // Mobile nav
+  // ─── MOBILE NAV ───────────────────────────────────────────
   function toggleNav() {
     document.getElementById('mobnav').classList.toggle('open');
   }
 
-  // Password toggle
-  function togglePwd() {
-    const p = document.getElementById('f-pwd');
-    p.type = p.type === 'password' ? 'text' : 'password';
-  }
 
-  // Registration submit
-  function submitReg() {
-    const fields = ['f-fname','f-lname','f-company','f-phone','f-email','f-size','f-state','f-category','f-pwd'];
-    const vals = fields.map(id => document.getElementById(id).value.trim());
-    if (vals.some(v => !v)) {
-      // Highlight empty fields
-      fields.forEach((id, i) => {
-        const el = document.getElementById(id);
-        el.style.borderColor = vals[i] ? '' : '#ef4444';
-        if (!vals[i]) el.addEventListener('input', () => el.style.borderColor = '', {once:true});
-      });
+  // ─── REGISTRATION + WEB3FORMS SUBMIT ─────────────────────
+  async function submitReg() {
+    const fieldMap = {
+      'f-fname':    'First Name',
+      'f-lname':    'Last Name',
+      'f-company':  'Company / Vendor Name',
+      'f-phone':    'Mobile Number',
+      'f-email':    'Email ID',
+      'f-size':     'Company Size',
+      'f-state':    'State / Location',
+      'f-category': 'Service Category',
+    };
+    const ids = Object.keys(fieldMap);
+
+    // ── Collect values & validate ──────────────────────────
+    const vals = {};
+    let hasEmpty = false;
+    const errorEl = document.getElementById('form-error');
+
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      const v = el.value.trim();
+      vals[id] = v;
+      if (!v) {
+        hasEmpty = true;
+        el.style.borderColor = '#ef4444';
+        el.addEventListener('input', () => el.style.borderColor = '', { once: true });
+      } else {
+        el.style.borderColor = '';
+      }
+    });
+
+    if (hasEmpty) {
+      errorEl.textContent = '⚠️ Please fill in all fields before submitting.';
+      errorEl.classList.add('show');
       return;
     }
-    // Show success
-    document.getElementById('reg-form').style.display = 'none';
-    document.getElementById('reg-success').style.display = 'block';
-    console.log('Vendor Registration:', Object.fromEntries(fields.map((id, i) => [id, vals[i]])));
+
+    // ── Basic email validation ─────────────────────────────
+    const emailRgx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRgx.test(vals['f-email'])) {
+      document.getElementById('f-email').style.borderColor = '#ef4444';
+      errorEl.textContent = '⚠️ Please enter a valid email address.';
+      errorEl.classList.add('show');
+      return;
+    }
+
+
+    errorEl.classList.remove('show');
+
+    // ── Show loading state ─────────────────────────────────
+    const btn = document.getElementById('reg-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="btn-spinner"></span>Submitting…';
+
+    // ── Build Web3Forms payload ────────────────────────────
+    // NOTE: Password is intentionally excluded from the submission
+    // for security — never send plain-text passwords to third-party services.
+    const payload = {
+      access_key: WEB3FORMS_KEY,
+      subject:    "New Vendor Registration — Sunlynks",
+
+      // Submission metadata
+      from_name:  `${vals['f-fname']} ${vals['f-lname']}`,
+      email:      vals['f-email'],
+
+      // All form fields (human-readable labels)
+      "First Name":           vals['f-fname'],
+      "Last Name":            vals['f-lname'],
+      "Company / Vendor Name": vals['f-company'],
+      "Mobile Number":        vals['f-phone'],
+      "Email ID":             vals['f-email'],
+      "Company Size":         vals['f-size'],
+      "State / Location":     vals['f-state'],
+      "Service Category":     vals['f-category'],
+
+      // Extras
+      "Registration Source":  "Vendor Page — Hero Form",
+      "Submitted At":         new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+    };
+
+    // ── Submit to Web3Forms ────────────────────────────────
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body:    JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        // ✅ Success — show thank-you screen
+        document.getElementById('reg-form').style.display = 'none';
+        document.getElementById('reg-success').style.display = 'block';
+        console.log('✅ Web3Forms submission successful:', data);
+      } else {
+        // ❌ API returned an error
+        throw new Error(data.message || 'Submission failed.');
+      }
+
+    } catch (err) {
+      console.error('❌ Web3Forms error:', err);
+      errorEl.textContent = '❌ Something went wrong. Please try again or contact support.';
+      errorEl.classList.add('show');
+      btn.disabled = false;
+      btn.innerHTML = '🌞 Register as Vendor — It\'s Free';
+    }
   }
 
-  // Scroll reveal
+  // ─── SCROLL REVEAL ────────────────────────────────────────
   const obs = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
