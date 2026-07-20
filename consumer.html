@@ -161,13 +161,6 @@ nav.scrolled{box-shadow:0 2px 30px rgba(6,95,70,0.10);}
 .fg textarea{resize:vertical;min-height:80px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
 
-.file-upload-area{border:2px dashed rgba(6,95,70,.25);border-radius:14px;padding:1.3rem;text-align:center;cursor:pointer;transition:all .2s;background:var(--green-xlight);position:relative;}
-.file-upload-area:hover{border-color:var(--green);background:#e8f9f2;}
-.file-upload-area .fup-icon{font-size:1.6rem;margin-bottom:.4rem;}
-.file-upload-area p{font-size:.82rem;color:var(--green);font-weight:600;}
-.file-upload-area span{font-size:.75rem;color:var(--muted);}
-#file-name{font-size:.78rem;color:var(--orange);font-weight:700;margin-top:.4rem;}
-
 /* Error box */
 .form-error{background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:.7rem 1rem;font-size:.83rem;color:#dc2626;margin-bottom:.8rem;display:none;}
 .form-error.show{display:block;}
@@ -523,7 +516,7 @@ footer{background:var(--text-dark);color:rgba(255,255,255,0.6);padding:3rem 5vw 
             <textarea id="e-notes" placeholder="e.g. flat rooftop, need battery backup, 3-phase connection..."></textarea>
           </div>
 
-          <button class="submit-btn" id="submit-btn" onclick="submitEnquiry()">🌞 Submit &amp; Get Free Quote</button>
+          <button type="button" class="submit-btn" id="submit-btn" onclick="submitEnquiry()">🌞 Submit &amp; Get Free Quote</button>
           <p class="form-note">By submitting you agree to our <a href="#">Terms</a>. We will never spam you or sell your data.</p>
         </div>
 
@@ -563,20 +556,14 @@ footer{background:var(--text-dark);color:rgba(255,255,255,0.6);padding:3rem 5vw 
 
   // ─── NAV ──────────────────────────────────────────────────
   window.addEventListener('scroll', () => {
-    document.getElementById('nav').classList.toggle('scrolled', scrollY > 20);
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
   });
   function toggleNav() { document.getElementById('mobmenu').classList.toggle('open'); }
   function closeNav()  { document.getElementById('mobmenu').classList.remove('open'); }
 
-  // ─── FILE NAME DISPLAY ────────────────────────────────────
-  function showFileName(input) {
-    const el = document.getElementById('file-name');
-    el.textContent = input.files[0] ? '📎 ' + input.files[0].name : '';
-  }
-
   // ─── ENQUIRY SUBMIT + WEB3FORMS ───────────────────────────
   async function submitEnquiry() {
-    // Required fields (notes & file are optional)
+    // Required fields
     const requiredFields = {
       'e-fname':    'First Name',
       'e-lname':    'Last Name',
@@ -629,14 +616,10 @@ footer{background:var(--text-dark);color:rgba(255,255,255,0.6);padding:3rem 5vw 
     btn.disabled = true;
     btn.innerHTML = '<span class="btn-spinner"></span>Submitting…';
 
-    // Optional fields
-    const notes    = document.getElementById('e-notes').value.trim();
-    const fileInput = document.getElementById('e-bill');
-    const fileName = fileInput.files[0] ? fileInput.files[0].name : 'Not uploaded';
+    // Optional field
+    const notes = document.getElementById('e-notes').value.trim();
 
     // Build Web3Forms payload
-    // NOTE: File attachment is not sent via Web3Forms API (binary files need multipart/form-data).
-    // The file name is captured so your team knows to request it on the follow-up call.
     const payload = {
       access_key: WEB3FORMS_KEY,
       subject:    "New Solar Enquiry — Sunlynks Consumer",
@@ -654,7 +637,6 @@ footer{background:var(--text-dark);color:rgba(255,255,255,0.6);padding:3rem 5vw 
       "Sanctioned Load":             vals['e-load'],
       "Preferred Installation Timeline": vals['e-timeline'],
       "Additional Notes":            notes || 'None',
-      "Electricity Bill Uploaded":   fileName,
 
       // Metadata
       "Enquiry Source":  "Consumer Page — Solar Enquiry Form",
@@ -675,13 +657,12 @@ footer{background:var(--text-dark);color:rgba(255,255,255,0.6);padding:3rem 5vw 
         // ✅ Success
         document.getElementById('enquiry-form').style.display = 'none';
         document.getElementById('form-success').style.display = 'block';
-        console.log('✅ Web3Forms submission successful:', data);
       } else {
         throw new Error(data.message || 'Submission failed.');
       }
 
     } catch (err) {
-      console.error('❌ Web3Forms error:', err);
+      console.error('Web3Forms error:', err);
       errorEl.textContent = '❌ Something went wrong. Please try again or call us at 9304364781.';
       errorEl.classList.add('show');
       btn.disabled = false;
